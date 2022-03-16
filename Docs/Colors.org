@@ -1,0 +1,7 @@
+* Colors used
+** Mod-wide
+   - manifest color: #4168ff
+** Villains
+*** The Elementalist
+    - background: #f2464c
+    - foid background: #96C0C0

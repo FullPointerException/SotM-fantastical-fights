@@ -1,0 +1,32 @@
+{
+	"title": "Fantastical Fights",
+	"author": "Full Pointer Exception",
+	"description": [
+		"Fanastical Fights is a fan made expansion that adds fantasy themed heroes and monsters."
+	],
+	"version": "v0.0.1",
+	"color": "4168ff",
+	"publishedFileId": 1,
+	"credits": [
+		"<b>Card Design:</b>: FullPointerException",
+		"<b>Software Development:</b> FullPointerException"
+	],
+	"namespace": "Fpe",
+	"dll": "FpeFantasy.dll",
+	"decks" : {
+		"heroes": [
+			"Druid",
+			"Priest",
+			"Thief"
+		],
+		"villains": [
+			"Hydra",
+			"TheElementalist"
+		],
+		"Environments": [
+			"CryptOfTheForgottenGod",
+			"SacredReliquary",
+			"TempleOfTheSealedDemon"
+		]
+	}
+}
