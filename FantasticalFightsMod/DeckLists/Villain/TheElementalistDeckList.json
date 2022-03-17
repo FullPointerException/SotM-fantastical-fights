@@ -27,8 +27,8 @@
 				"Search the villain deck for 10 glyph cards and put them into play. Shuffle the villain deck."
 			],
 			"gameplay": [
-				"Whenever there are no glyphs in play, {TheElementalist} flips."
-				"When {TheElementalist} is destroyed, he flips. "
+				"At the start of the villain turn, if there are no glyphs in play, {TheElementalist} flips.",
+				"When {TheElementalist} is destroyed, he flips."
 			],
 			"advanced": "TODO",
 			"icons": [
@@ -120,7 +120,7 @@
 			"flavorQuotes": [
 				{
 					"identifier": "TheElementalist",
-					"text": "Burn! BURN! BUUUUUUUUUUUUURRRRRRRRN!",
+					"text": "Burn! BURN! BUUUUUUUUUUUUURRRRRRRRN!"
 				}
 			],
 			"flavorReference": "The Elementalist, Spellbound Tales #92",
@@ -180,7 +180,7 @@
 				"glyph"
 			],
 			"icons": [
-				"ImmuneToDamageToxic",
+				"ImmuneToDamageToxic"
 			],
 			"body": [
 				"{Antitoxin} is immune to toxic damage.",
@@ -203,7 +203,7 @@
 				"glyph"
 			],
 			"icons": [
-				"ImmuneToDamageSonic",
+				"ImmuneToDamageSonic"
 			],
 			"body": [
 				"{AuraOfSilence} is immune to sonic damage.",
@@ -226,7 +226,7 @@
 				"glyph"
 			],
 			"icons": [
-				"ImmuneToDamagePsychic",
+				"ImmuneToDamagePsychic"
 			],
 			"body": [
 				"{MindBlank} is immune to psychic damage.",
@@ -253,7 +253,7 @@
 				"glyph"
 			],
 			"icons": [
-				"ImmuneToDamageRadiant",
+				"ImmuneToDamageRadiant"
 			],
 			"body": [
 				"{HolyAspect} is immune to radiant damage.",
@@ -276,7 +276,7 @@
 				"glyph"
 			],
 			"icons": [
-				"ImmuneToDamageInfernal",
+				"ImmuneToDamageInfernal"
 			],
 			"body": [
 				"{UnholyAspect} is immune to infernal damage.",
