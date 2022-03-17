@@ -27,7 +27,7 @@
 				"Search the villain deck for 10 glyph cards and put them into play. Shuffle the villain deck."
 			],
 			"gameplay": [
-				"At the start of the villain turn, if there are no glyphs in play, {TheElementalist} flips.",
+				"If there are ever no glyphs in play, {TheElementalist} flips.",
 				"When {TheElementalist} is destroyed, he flips."
 			],
 			"advanced": "TODO",
@@ -371,7 +371,7 @@
 				"DestroyEquipment"
 			],
 			"body": [
-				"{TheElementalist} deals each hero target 1 toxic damage.",
+				"{TheElementalist} deals each non-villain target 1 toxic damage.",
 				"If {Antitoxin} is in play, destroy all hero equipment cards."
 			],
 			"flavorQuotes": [
@@ -394,7 +394,7 @@
 				"CannotPlayCards"
 			],
 			"body": [
-				"{TheElementalist} deals each hero target 1 sonic damage.",
+				"{TheElementalist} deals each non-villain target 1 sonic damage.",
 				"If {AuraOfSilence} is in play, heroes dealt damage this way cannot play cards until the start of the villain turn."
 			],
 			"flavorQuotes": [
@@ -417,7 +417,7 @@
 				"DestoryOngoing"
 			],
 			"body": [
-				"{TheElementalist} deals each hero target 1 psychic damage.",
+				"{TheElementalist} deals each non-villain target 1 psychic damage.",
 				"If {MindBlank} is in play, destroy all hero ongoing cards."
 			],
 			"flavorQuotes": [
@@ -506,7 +506,7 @@
 				"PlayCardNow"
 			],
 			"body": [
-				"Each glyph in play deals 1 damage of its type to all hero targets.",
+				"Each glyph in play deals 1 damage of its type to all non-villain targets.",
 				"If there are no glyph cards in play, play the top card of the villain deck."
 			],
 			"flavorQuotes": [

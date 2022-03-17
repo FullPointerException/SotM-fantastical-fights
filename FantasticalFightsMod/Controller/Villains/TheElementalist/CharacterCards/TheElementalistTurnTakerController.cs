@@ -16,6 +16,7 @@ namespace Fpe.TheElementalist
         public override IEnumerator StartGame()
         {
             var glyphs = FindCardsWhere(c => c.DoKeywordsContain("glyph"));
+            // TODO is SearchForCards better?
             IEnumerator playGlyphs = base.PutCardsIntoPlay(new LinqCardCriteria((Card c) => c.DoKeywordsContain("glyph")), 10, true);
 
             if(base.UseUnityCoroutines)

@@ -1,0 +1,8 @@
+* The Elementalist
+	- Add hints for number of glyphs in play
+	- Add hints for is specific glyph in play
+* Repo
+  - Fix .csproj
+  - Add art guidelines
+  - Add art
+  - Add unit testing
