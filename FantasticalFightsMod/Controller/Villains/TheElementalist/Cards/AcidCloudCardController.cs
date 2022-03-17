@@ -10,7 +10,7 @@ namespace Fpe.TheElementalist
 
 		public override IEnumerator Play()
 		{
-			//"{TheElementalist} deals each non-villain target 1 toxic damage.",
+			// {TheElementalist} deals each non-villain target 1 toxic damage.
 			IEnumerator coroutine = DealDamage(base.CharacterCard, (Card c) => !c.IsVillain && c.IsTarget, 1, DamageType.Toxic);
 			if(UseUnityCoroutines)
 			{
@@ -21,7 +21,7 @@ namespace Fpe.TheElementalist
 				this.GameController.ExhaustCoroutine(coroutine);
 			}
 
-			//"If {Antitoxin} is in play, destroy all hero equipment cards."
+			// If {Antitoxin} is in play, destroy all hero equipment cards.
 			bool isInPlay = this.GameController.IsCardInPlayAndNotUnderCard("Antitoxin");
 			if(isInPlay)
 			{
