@@ -7,5 +7,13 @@ namespace Fpe.TheElementalist
 			: base(card, turnTakerController)
 		{
 		}
+
+		public override void AddTriggers()
+		{
+			// {AuraOfSilence} is immune to sonic damage.
+			AddImmuneToDamageTrigger((DealDamageAction action) => action.DamageType == DamageType.Sonic && action.Target == this.Card)
+			// {TheElementalist} is immune to sonic damage.
+			AddImmuneToDamageTrigger((DealDamageAction action) => action.DamageType == DamageType.Sonic && action.Target == this.CharacterCard)
+		}
 	}
 }
