@@ -322,8 +322,243 @@
 			],
 			"icons": [
 				"DealDamageCold",
-				TODO
+				"CannotUsePowers"
+			],
+			"body": [
+				"{TheElementalist} deals the {H-2} hero characters with the highest HP 3 cold damage.",
+				"If {FrostShield} is in play, characters dealt damage this way cannot use powers until the start of the villain turn."
+			],
+			"flavorQuotes": [
+				{
+					"itentifier": "TheElementalist",
+					"text": "TODO"
+				}
+			],
+			"flavorReference": "TODO"
+		},
+		{
+			"identifier": "Lightning Bolt",
+			"count": 1,
+			"title": "Lightning Wave",
+			"keywords": [
+				"one-shot"
+			],
+			"icons": [
+				"DealDamageLightning",
+				"CannotDealDamage"
+			],
+			"body": [
+				"{TheElementalist} deals the {H-2} hero characters with the lowest HP 1 lightning damage.",
+				"If {Grounding} is in play, characters dealt damage this way cannot deal damage until the start of the villain turn."
+			],
+			"flavorQuotes": [
+				{
+					"itentifier": "TheElementalist",
+					"text": "TODO"
+				}
+			],
+			"flavorReference": "TODO"
+		},
+		{
+			"identifier": "AcidCloud",
+			"count": 1,
+			"title": "Acid Cloud",
+			"keywords": [
+				"one-shot"
+			],
+			"icons": [
+				"DealDamageToxic",
+				"DestroyEquipment"
+			],
+			"body": [
+				"{TheElementalist} deals each hero target 1 toxic damage.",
+				"If {Antitoxin} is in play, destroy all hero equipment cards."
+			],
+			"flavorQuotes": [
+				{
+					"itentifier": "TheElementalist",
+					"text": "TODO"
+				}
+			],
+			"flavorReference": "TODO"
+		},
+		{
+			"identifier": "SonicBoom",
+			"count": 1,
+			"title": "Sonic Boom",
+			"keywords": [
+				"one-shot"
+			],
+			"icons": [
+				"DealDamageSonic",
+				"CannotPlayCards"
+			],
+			"body": [
+				"{TheElementalist} deals each hero target 1 sonic damage.",
+				"If {AuraOfSilence} is in play, heroes dealt damage this way cannot play cards until the start of the villain turn."
+			],
+			"flavorQuotes": [
+				{
+					"itentifier": "TheElementalist",
+					"text": "TODO"
+				}
+			],
+			"flavorReference": "TODO"
+		},
+		{
+			"identifier": "MindCrush",
+			"count": 1,
+			"title": "Mind Crush",
+			"keywords": [
+				"one-shot"
+			],
+			"icons": [
+				"DealDamagePsychic",
+				"DestoryOngoing"
+			],
+			"body": [
+				"{TheElementalist} deals each hero target 1 psychic damage.",
+				"If {MindBlank} is in play, destroy all hero ongoing cards."
+			],
+			"flavorQuotes": [
+				{
+					"itentifier": "TheElementalist",
+					"text": "TODO"
+				}
+			],
+			"flavorReference": "TODO"
+		},
+		{
+			"identifier": "ChannelLight",
+			"count": 1,
+			"title": "Channel Light",
+			"keywords": [
+				"one-shot"
+			],
+			"icons": [
+				"DealDamageRadiant",
+				"GainHP"
+			],
+			"body": [
+				"{TheElementalist} deals the hero target with the highest HP {H} radiant damage.",
+				"If {HolyAspect} is in play, all villain targets regain {H} HP."
+			],
+			"flavorQuotes": [
+				{
+					"itentifier": "TheElementalist",
+					"text": "TODO"
+				}
+			],
+			"flavorReference": "TODO"
+		},
+		{
+			"identifier": "ChannelDarkness",
+			"count": 1,
+			"title": "Channel Darkness",
+			"keywords": [
+				"one-shot"
+			],
+			"icons": [
+				"DealDamageInfernal",
+				"Discard"
+			],
+			"body": [
+				"{TheElementalist} deals the {H-2} hero targets with the lowest HP {H} infernal damage.",
+				"If {UnholyAspect} is in play, all hero characters damaged this way discard all but 1 card."
 			]
+		},
+		{
+			"identifier": "ScribeGlyph",
+			"count": 2,
+			"title": "Scribe Glyph",
+			"keywords": [
+				"one-shot"
+			],
+			"icons": [
+				"Search",
+				"DealDamage",
+				"GainHP",
+				"PlayCardNow"
+			],
+			"body": [
+				"Reveal cards from the villain trash until you reveal a glyph and put it into play.",
+				"If you do, that glyph deals each hero target 1 damage of its damage type.",
+				"Otherwise, all glyphs regain 1 HP.",
+				"Play the top card of the villain deck."
+			],
+			"flavorQuotes": [
+				{
+					"itentifier": "TheElementalist",
+					"text": "TODO"
+				}
+			],
+			"flavorReference": "TODO"
+		},
+		{
+			"identifier": "PrismaticBlast",
+			"count": 2,
+			"title": "Prismatic Blast",
+			"keywords": [
+				"one-shot"
+			],
+			"icons": [
+				"DealDamage",
+				"PlayCardNow"
+			],
+			"body": [
+				"Each glyph in play deals 1 damage of its type to all hero targets.",
+				"If there are no glyph cards in play, play the top card of the villain deck."
+			],
+			"flavorQuotes": [
+				{
+					"itentifier": "TheElementalist",
+					"text": "TODO"
+				}
+			],
+			"flavorReference": "TODO"
+		},
+		{
+			"identifier": "TimeStop",
+			"count": 1,
+			"title": "Time Stop",
+			"keywords": [
+				"one-shot"
+			],
+			"icons": [
+				"PlayCardNow",
+				"PlayCardNow"
+			],
+			"body": [
+				"Play the top 2 cards of the villain deck."
+			],
+			"flavorQuotes": [
+				{
+					"itentifier": "TheElementalist",
+					"text": "TODO"
+				}
+			],
+			"flavorReference": "TODO"
+		},
+		{
+			"identifier": "PrismaticGlyphs",
+			"count": 2,
+			"title": "Prismatic Glyphs",
+			"keywords": [
+				"ongoing"
+			],
+			"icons": [
+				"ImmuneToDamage"
+			],
+			"body": [
+				"If any glyphs are in play, {TheElementalist} is immune to damage."
+			],
+			"flavorQuotes": [
+				{
+					"itentifier": "TheElementalist",
+					"text": "TODO"
+				}
+			],
+			"flavorReference": "TODO"
 		}
 	]
 }
