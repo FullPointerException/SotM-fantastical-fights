@@ -1,4 +1,5 @@
 
+
 namespace Fpe.TheElementalist
 {
 	public class IceStormCardController : CardController
@@ -9,7 +10,7 @@ namespace Fpe.TheElementalist
 
 		}
 
-		pujblic override IEnumerator Play()
+		public override IEnumerator Play()
 		{
 			List<DealDamageAction> targetResults = new List<DealDamageAction>();
 
