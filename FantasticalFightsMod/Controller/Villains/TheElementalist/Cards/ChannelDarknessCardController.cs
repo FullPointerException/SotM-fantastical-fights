@@ -14,7 +14,7 @@ namespace Fpe.TheElementalist
 			List<DealDamageAction> targetResults = new List<DealDamageAction>();
 
 			// {TheElementalist} deals the {H-2} hero targets with the lowest HP {H} infernal damage.
-			IEnumerator coroutine = base.DealDamageToLowestHP(base.CharacterCard, 1, (Card c) => c.IsHero && c.IsTarget, (Card c) => 2, DamageType.Lightning, numberOfTargets: Game.H - 2, storedResults: targetResults);
+			IEnumerator coroutine = base.DealDamageToLowestHP(base.CharacterCard, 1, (Card c) => c.IsHero && c.IsTarget, (Card c) => Game.H, DamageType.Infernal, numberOfTargets: Game.H - 2, storedResults: targetResults);
 			if (base.UseUnityCoroutines)
             {
                 yield return base.GameController.StartCoroutine(coroutine);
@@ -48,9 +48,6 @@ namespace Fpe.TheElementalist
 					}
 				}
 			}
-
-            yield break; // TODO is this needed?
-
 		}
 	}
 }

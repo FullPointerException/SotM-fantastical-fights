@@ -35,7 +35,6 @@ namespace Fpe.TheElementalist
 					this.GameController.ExhaustCoroutine(coroutine);
 				}
 			}
-			// TODO: does this need yield break?
 		}
 	}
 }
