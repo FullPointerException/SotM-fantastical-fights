@@ -7,5 +7,13 @@ namespace Fpe.TheElementalist
 			: base(card, turnTakerController)
 		{
 		}
+
+		public override void AddTriggers()
+		{
+			// {MindBlank} is immune to psychic damage.
+			AddImmuneToDamageTrigger((DealDamageAction action) => action.DamageType == DamageType.Psychic && action.Target == this.Card)
+			// {TheElementalist} is immune to psychic damage.
+			AddImmuneToDamageTrigger((DealDamageAction action) => action.DamageType == DamageType.Psychic && action.Target == this.CharacterCard)
+		}
 	}
 }
