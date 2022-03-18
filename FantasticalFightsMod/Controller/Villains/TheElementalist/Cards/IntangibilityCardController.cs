@@ -7,5 +7,13 @@ namespace Fpe.TheElementalist
 			: base(card, turnTakerController)
 		{
 		}
+
+		public override void AddTriggers()
+		{
+			// {Intangibility} is immune to melee damage.
+			AddImmuneToDamageTrigger((DealDamageAction action) => action.DamageType == DamageType.Melee && action.Target == this.Card)
+			// {TheElementalist} is immune to melee damage.
+			AddImmuneToDamageTrigger((DealDamageAction action) => action.DamageType == DamageType.Melee && action.Target == this.CharacterCard)
+		}
 	}
 }
