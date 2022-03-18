@@ -7,5 +7,13 @@ namespace Fpe.TheElementalist
 			: base(card, turnTakerController)
 		{
 		}
+
+		public override void AddTriggers()
+		{
+			// {HolyAspect} is immune to radiant damage.
+			AddImmuneToDamageTrigger((DealDamageAction action) => action.DamageType == DamageType.Radiant && action.Target == this.Card)
+			// {TheElementalist} is immune to radiant damage.
+			AddImmuneToDamageTrigger((DealDamageAction action) => action.DamageType == DamageType.Radiant && action.Target == this.CharacterCard)
+		}
 	}
 }
