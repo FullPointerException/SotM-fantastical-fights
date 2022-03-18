@@ -1,3 +1,6 @@
 * Fantastical Fights
 
 ** 0.0.1
+*** New Content
+	- Villain: The Elementalist
+
