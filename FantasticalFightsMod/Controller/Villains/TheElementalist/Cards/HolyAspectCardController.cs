@@ -8,6 +8,11 @@ namespace Fpe.TheElementalist
 		{
 		}
 
+		public override DamageType damageType()
+		{
+			return DamageType.Radiant;
+		}
+
 		public override void AddTriggers()
 		{
 			// {HolyAspect} is immune to radiant damage.

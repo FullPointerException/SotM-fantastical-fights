@@ -8,6 +8,11 @@ namespace Fpe.TheElementalist
 		{
 		}
 
+		public override DamageType damageType()
+		{
+			return DamageType.Sonic;
+		}
+
 		public override void AddTriggers()
 		{
 			// {AuraOfSilence} is immune to sonic damage.

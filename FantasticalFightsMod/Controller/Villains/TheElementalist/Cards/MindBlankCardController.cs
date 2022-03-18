@@ -8,6 +8,11 @@ namespace Fpe.TheElementalist
 		{
 		}
 
+		public override DamageType damageType()
+		{
+			return DamageType.Psychic;
+		}
+
 		public override void AddTriggers()
 		{
 			// {MindBlank} is immune to psychic damage.

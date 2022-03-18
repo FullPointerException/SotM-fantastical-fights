@@ -7,5 +7,7 @@ namespace Fpe.TheElementalist
 			: base(card, turnTakerController)
 		{
 		}
+
+		public abstract DamageType damageType();
 	}
 }

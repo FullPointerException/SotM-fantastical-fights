@@ -8,6 +8,11 @@ namespace Fpe.TheElementalist
 		{
 		}
 
+		public override DamageType damageType()
+		{
+			return DamageType.Lightning;
+		}
+
 		public override void AddTriggers()
 		{
 			// {Grounding} is immune to lightning damage.

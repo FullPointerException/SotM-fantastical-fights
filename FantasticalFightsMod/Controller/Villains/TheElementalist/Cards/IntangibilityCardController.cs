@@ -8,6 +8,11 @@ namespace Fpe.TheElementalist
 		{
 		}
 
+		public override DamageType damageType()
+		{
+			return DamageType.Melee;
+		}
+
 		public override void AddTriggers()
 		{
 			// {Intangibility} is immune to melee damage.

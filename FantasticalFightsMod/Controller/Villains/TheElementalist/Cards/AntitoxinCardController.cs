@@ -8,6 +8,11 @@ namespace Fpe.TheElementalist
 		{
 		}
 
+		public override DamageType damageType()
+		{
+			return DamageType.Toxic;
+		}
+
 		public override void AddTriggers()
 		{
 			// {Antitoxin} is immune to toxic damage.

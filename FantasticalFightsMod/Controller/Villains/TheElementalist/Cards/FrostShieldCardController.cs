@@ -8,6 +8,11 @@ namespace Fpe.TheElementalist
 		{
 		}
 
+		public override DamageType damageType()
+		{
+			return DamageType.Cold;
+		}
+
 		public override void AddTriggers()
 		{
 			// {FrostShield} is immune to cold damage.

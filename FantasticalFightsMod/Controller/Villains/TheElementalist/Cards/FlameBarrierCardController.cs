@@ -8,6 +8,11 @@ namespace Fpe.TheElementalist
 		{
 		}
 
+		public override DamageType damageType()
+		{
+			return DamageType.Fire;
+		}
+
 		public override void AddTriggers()
 		{
 			// {FlameBarrier} is immune to fire damage.

@@ -7,5 +7,10 @@ namespace Fpe.TheElementalist
 			: base(card, turnTakerController)
 		{
 		}
+
+		public override DamageType damageType()
+		{
+			return DamageType.Projectile;
+		}
 	}
 }
