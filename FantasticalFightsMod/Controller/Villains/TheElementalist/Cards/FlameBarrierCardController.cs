@@ -1,3 +1,5 @@
+using Handelabra.Sentinels.Engine.Model;
+using Handelabra.Sentinels.Engine.Controller;
 
 namespace Fpe.TheElementalist
 {
@@ -16,9 +18,9 @@ namespace Fpe.TheElementalist
 		public override void AddTriggers()
 		{
 			// {FlameBarrier} is immune to fire damage.
-			AddImmuneToDamageTrigger((DealDamageAction action) => action.DamageType == DamageType.Fire && action.Target == this.Card)
+			AddImmuneToDamageTrigger((DealDamageAction action) => action.DamageType == DamageType.Fire && action.Target == this.Card);
 			// {TheElementalist} is immune to fire damage.
-			AddImmuneToDamageTrigger((DealDamageAction action) => action.DamageType == DamageType.Fire && action.Target == this.CharacterCard)
+			AddImmuneToDamageTrigger((DealDamageAction action) => action.DamageType == DamageType.Fire && action.Target == this.CharacterCard);
 		}
 	}
 }

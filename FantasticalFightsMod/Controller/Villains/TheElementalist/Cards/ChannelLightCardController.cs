@@ -1,3 +1,6 @@
+using Handelabra.Sentinels.Engine.Model;
+using Handelabra.Sentinels.Engine.Controller;
+using System.Collections;
 
 namespace Fpe.TheElementalist
 {
@@ -12,7 +15,7 @@ namespace Fpe.TheElementalist
 		public override IEnumerator Play()
 		{
 			// {TheElementalist} deals the hero target with the highest HP {H} radiant damage.
-			IEnumerator coroutine = base.DealDamageToHighestHP(base.CharacterCard, 1, (Card c) => c.IsHero && c.IsTarget, (Card c) => Game.H, DamageType.Radiant, numberOfTargets: 1);
+			IEnumerator coroutine = base.DealDamageToHighestHP(base.CharacterCard, 1, (Card c) => c.IsHero && c.IsTarget, (Card c) => Game.H, DamageType.Radiant, numberOfTargets: () => 1);
 			if (base.UseUnityCoroutines)
             {
                 yield return base.GameController.StartCoroutine(coroutine);
@@ -28,11 +31,11 @@ namespace Fpe.TheElementalist
             	coroutine = this.GameController.GainHP(this.DecisionMaker, (Card c) => c.IsVillain && c.IsTarget, Game.H);
 				if (base.UseUnityCoroutines)
 				{
-					yield return base.GameController.StartCoroutine(discard);
+					yield return base.GameController.StartCoroutine(coroutine);
 				}
 				else
 				{
-					base.GameController.ExhaustCoroutine(discard);
+					base.GameController.ExhaustCoroutine(coroutine);
 				}
             }
 		}

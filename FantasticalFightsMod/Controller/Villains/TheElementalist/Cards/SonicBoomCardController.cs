@@ -1,3 +1,5 @@
+using Handelabra.Sentinels.Engine.Model;
+using Handelabra.Sentinels.Engine.Controller;
 
 namespace Fpe.TheElementalist
 {

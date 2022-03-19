@@ -1,3 +1,6 @@
+using Handelabra.Sentinels.Engine.Model;
+using Handelabra.Sentinels.Engine.Controller;
+using System.Collections;
 
 namespace Fpe.TheElementalist
 {
@@ -25,7 +28,7 @@ namespace Fpe.TheElementalist
 			bool isInPlay = this.GameController.IsCardInPlayAndNotUnderCard("Antitoxin");
 			if(isInPlay)
 			{
-				coroutine = this.GameController.DestroyCards(DecisionMaker, new LinqCardCriterial((Card c) => c.IsInPlayAndHasGameText && IsOngoing(c)));
+				coroutine = this.GameController.DestroyCards(DecisionMaker, new LinqCardCriteria((Card c) => c.IsInPlayAndHasGameText && c.IsOngoing));
 				if(UseUnityCoroutines)
 				{
 					yield return this.GameController.StartCoroutine(coroutine);

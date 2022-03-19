@@ -1,3 +1,5 @@
+using Handelabra.Sentinels.Engine.Controller;
+using Handelabra.Sentinels.Engine.Model;
 
 namespace Fpe.TheElementalist
 {
@@ -16,9 +18,9 @@ namespace Fpe.TheElementalist
 		public override void AddTriggers()
 		{
 			// {Antitoxin} is immune to toxic damage.
-			AddImmuneToDamageTrigger((DealDamageAction action) => action.DamageType == DamageType.Toxic && action.Target == this.Card)
+			AddImmuneToDamageTrigger((DealDamageAction action) => action.DamageType == DamageType.Toxic && action.Target == this.Card);
 			// {TheElementalist} is immune to toxic damage.
-			AddImmuneToDamageTrigger((DealDamageAction action) => action.DamageType == DamageType.Toxic && action.Target == this.CharacterCard)
+			AddImmuneToDamageTrigger((DealDamageAction action) => action.DamageType == DamageType.Toxic && action.Target == this.CharacterCard);
 		}
 	}
 }

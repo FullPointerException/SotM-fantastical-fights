@@ -11,10 +11,10 @@ namespace Fpe.TheElementalist
             : base(turnTaker, gameController)
         {
         }
-
-		// Search the villain deck for 10 glyph cards and put them into play. Shuffle the villain deck.
+		
         public override IEnumerator StartGame()
         {
+            // Search the villain deck for 10 glyph cards and put them into play. Shuffle the villain deck.
             var glyphs = FindCardsWhere(c => c.DoKeywordsContain("glyph"));
             // TODO is SearchForCards better?
             IEnumerator playGlyphs = base.PutCardsIntoPlay(new LinqCardCriteria((Card c) => c.DoKeywordsContain("glyph")), 10, true);

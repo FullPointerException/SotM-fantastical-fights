@@ -1,3 +1,7 @@
+using Handelabra.Sentinels.Engine.Model;
+using Handelabra.Sentinels.Engine.Controller;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Fpe.TheElementalist
 {
@@ -14,7 +18,7 @@ namespace Fpe.TheElementalist
 			List<DealDamageAction> targetResults = new List<DealDamageAction>();
 
 			// {TheElementalist} deals the {H-2} hero characters with the lowest HP 1 lightning damage.
-			IEnumerator coroutine = base.DealDamageToLowestHP(base.CharacterCard, 1, (Card c) => c.IsHero && c.IsTarget && c.IsCharacter, (Card c) => 3, DamageType.Lightning, numberOfTargets: Game.H - 2, storedResults: targetResults)
+			IEnumerator coroutine = base.DealDamageToLowestHP(base.CharacterCard, 1, (Card c) => c.IsHero && c.IsTarget && c.IsCharacter, (Card c) => 3, DamageType.Lightning, numberOfTargets: Game.H - 2, storedResults: targetResults);
             if (base.UseUnityCoroutines)
             {
                 yield return base.GameController.StartCoroutine(coroutine);
@@ -29,15 +33,14 @@ namespace Fpe.TheElementalist
 
 			if(isInPlay)
 			{
-				foreach(DeadDamageAction t in targetResults)
+				foreach(DealDamageAction t in targetResults)
 				{
 					if(t != null && t.Target != null && t.Target.IsHeroCharacterCard && t.DidDealDamage)
 					{
-						CannotUsePowersStatusEffect cannotUsePowers = new CannotDealDamageStatusEffect();
-						cannotUsePowers.TurnTakerCriteria.IsSpecificTurnTaker = t.Target.NativeDeck.OwnerTurnTaker;
-						cannotUsePowers.UntilStartOfNextTurn(base.TurnTaker);
+						CannotDealDamageStatusEffect cannotDealDamage = new CannotDealDamageStatusEffect();
+						cannotDealDamage.UntilStartOfNextTurn(base.TurnTaker);
 
-						coroutine = base.AddStatusEffect(cannotUsePowersStatusEffect);
+						coroutine = base.AddStatusEffect(cannotDealDamage);
             			if (base.UseUnityCoroutines)
             			{
                 			yield return base.GameController.StartCoroutine(coroutine);

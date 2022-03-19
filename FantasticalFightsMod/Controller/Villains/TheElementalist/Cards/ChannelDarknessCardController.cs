@@ -1,3 +1,7 @@
+using Handelabra.Sentinels.Engine.Model;
+using Handelabra.Sentinels.Engine.Controller;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Fpe.TheElementalist
 {
@@ -39,11 +43,11 @@ namespace Fpe.TheElementalist
 
 						if (base.UseUnityCoroutines)
 						{
-							yield return base.GameController.StartCoroutine(discard);
+							yield return base.GameController.StartCoroutine(coroutine);
 						}
 						else
 						{
-							base.GameController.ExhaustCoroutine(discard);
+							base.GameController.ExhaustCoroutine(coroutine);
 						}
 					}
 				}

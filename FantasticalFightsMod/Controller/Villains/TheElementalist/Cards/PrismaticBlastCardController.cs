@@ -1,3 +1,7 @@
+using Handelabra.Sentinels.Engine.Model;
+using Handelabra.Sentinels.Engine.Controller;
+using System.Collections;
+using System.Linq;
 
 namespace Fpe.TheElementalist
 {
@@ -16,13 +20,13 @@ namespace Fpe.TheElementalist
 			if(glyphs.Any())
 			{
 				// Each glyph in play deals 1 damage of its type to all non-villain targets.
-				foreach(Card c in glyphs)
+				foreach(Card card in glyphs)
 				{
-					CardController cardController = FindCardController(c);
+					CardController cardController = FindCardController(card);
 					if(cardController is GlyphCardController)
 					{
 						GlyphCardController glyphController = (GlyphCardController)cardController;
-						IEnumerator coroutine = DealDamage(c, (Card c) => !c.IsVillain && c.IsTarget, 1, glyphController.damageType());
+						IEnumerator coroutine = DealDamage(card, (Card c) => !c.IsVillain && c.IsTarget, 1, glyphController.damageType());
 						if(UseUnityCoroutines)
 						{
 							yield return this.GameController.StartCoroutine(coroutine);

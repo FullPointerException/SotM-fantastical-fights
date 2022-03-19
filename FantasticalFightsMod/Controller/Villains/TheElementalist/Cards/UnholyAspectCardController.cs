@@ -1,3 +1,5 @@
+using Handelabra.Sentinels.Engine.Model;
+using Handelabra.Sentinels.Engine.Controller;
 
 namespace Fpe.TheElementalist
 {
@@ -10,7 +12,7 @@ namespace Fpe.TheElementalist
 
 		public override DamageType damageType()
 		{
-			return DamageType.Necrotic;
+			return DamageType.Infernal;
 		}
 
 	}

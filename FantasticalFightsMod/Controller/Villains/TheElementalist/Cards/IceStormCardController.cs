@@ -1,4 +1,7 @@
-
+using Handelabra.Sentinels.Engine.Model;
+using Handelabra.Sentinels.Engine.Controller;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Fpe.TheElementalist
 {
@@ -15,7 +18,7 @@ namespace Fpe.TheElementalist
 			List<DealDamageAction> targetResults = new List<DealDamageAction>();
 
 			// {TheElementalist} deals the {H-2} hero characters with the highest HP 3 cold damage.
-			IEnumerator coroutine = base.DealDamageToHighestHP(base.CharacterCard, 1, (Card c) => c.IsHero && c.IsTarget && c.IsCharacter, (Card c) => 3, DamageType.Cold, numberOfTargets: Game.H - 2, storedResults: targetResults)
+			IEnumerator coroutine = base.DealDamageToHighestHP(base.CharacterCard, 1, (Card c) => c.IsHero && c.IsTarget && c.IsCharacter, (Card c) => 3, DamageType.Cold, numberOfTargets: () => (Game.H - 2), storedResults: targetResults);
             if (base.UseUnityCoroutines)
             {
                 yield return base.GameController.StartCoroutine(coroutine);
@@ -30,7 +33,7 @@ namespace Fpe.TheElementalist
 
 			if(isInPlay)
 			{
-				foreach(DeadDamageAction t in targetResults)
+				foreach(DealDamageAction t in targetResults)
 				{
 					if(t != null && t.Target != null && t.Target.IsHeroCharacterCard && t.DidDealDamage)
 					{
@@ -38,7 +41,7 @@ namespace Fpe.TheElementalist
 						cannotUsePowers.TurnTakerCriteria.IsSpecificTurnTaker = t.Target.NativeDeck.OwnerTurnTaker;
 						cannotUsePowers.UntilStartOfNextTurn(base.TurnTaker);
 
-						coroutine = base.AddStatusEffect(cannotUsePowersStatusEffect);
+						coroutine = base.AddStatusEffect(cannotUsePowers);
             			if (base.UseUnityCoroutines)
             			{
                 			yield return base.GameController.StartCoroutine(coroutine);

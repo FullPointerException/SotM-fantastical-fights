@@ -1,3 +1,5 @@
+using Handelabra.Sentinels.Engine.Model;
+using Handelabra.Sentinels.Engine.Controller;
 
 namespace Fpe.TheElementalist
 {
@@ -16,9 +18,9 @@ namespace Fpe.TheElementalist
 		public override void AddTriggers()
 		{
 			// {FrostShield} is immune to cold damage.
-			AddImmuneToDamageTrigger((DealDamageAction action) => action.DamageType == DamageType.Cold && action.Target == this.Card)
+			AddImmuneToDamageTrigger((DealDamageAction action) => action.DamageType == DamageType.Cold && action.Target == this.Card);
 			// {TheElementalist} is immune to cold damage.
-			AddImmuneToDamageTrigger((DealDamageAction action) => action.DamageType == DamageType.Cold && action.Target == this.CharacterCard)
+			AddImmuneToDamageTrigger((DealDamageAction action) => action.DamageType == DamageType.Cold && action.Target == this.CharacterCard);
 		}
 	}
 }
