@@ -89,12 +89,10 @@
     <EmbeddedResource Include="DeckLists\Environment\TempleOfTheSealedDemonDeckList.json" />
     <EmbeddedResource Include="DeckLists\Hero\DruidDeckList.json" />
     <EmbeddedResource Include="DeckLists\Hero\PriestDeckList.json" />
-    <EmbeddedResource Include="DeckLists\Hero\ThiefDeckList.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
+    <EmbeddedResource Include="DeckLists\Hero\ThiefDeckList.json" />
     <EmbeddedResource Include="DeckLists\Villain\HydraDeckList.json" />
     <EmbeddedResource Include="DeckLists\Villain\TheElementalistDeckList.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <LogicalName>Fpe.DeckLists.%(EmbeddedResource.FileName).json</LogicalName>
     </EmbeddedResource>
     <None Include="manifest.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
