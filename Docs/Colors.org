@@ -4,4 +4,9 @@
 ** Villains
 *** The Elementalist
     - background: #f2464c
-    - foid background: #96C0C0
+    - foil background: #96C0C0
+** Heroes
+*** Theif
+    - background: #f8f863
+    - foid background: #bda55d
+    - hitpoints: #bb0000

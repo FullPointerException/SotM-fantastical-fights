@@ -20,7 +20,7 @@
 			"character": true,
 			"hitpoints": 100,
 			"nemesisIdentifiers": [
-				"Cauldron.Wizard"
+				"FpeFantasy.Wizard"
 			],
 			"setup": [
 				"At the start of the game, {TheElementalist} enters play \"Master of the Elements\" side up.",

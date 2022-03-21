@@ -1,0 +1,320 @@
+{
+	"name": "Thief",
+	"sortName": "Thief",
+	"kind": "Hero",
+	"expansionIdentifier": "Fantastical Fights",
+	"initialCardIdentifiers": [
+		"ThiefCharacter"
+	],
+	"cards": [
+		{
+			"identifier": "ThiefCharacter",
+			"count": 1,
+			"title": "Theif",
+			"keywords": [
+				"hero"
+			],
+			"body": "Theif",
+			"backgroundColor": "f8f863",
+			"foilBackgroundColor": "bda55d",
+			"hitpointColor": "bb0000",
+			"character": true,
+			"powers": [
+				"Reveal the top 2 cards of your deck. Play one and discard the other."
+			],
+			"icons": [
+				"HasPower",
+				"Discard",
+				"PlayCardNow"
+			],
+			"hitpoints": 24,
+			"nemesisIdentifiers": [
+				"FpeFantasy.Thief"
+			],
+			"incapacitatedAbilities": [
+				"One hero uses a power.",
+				"One hero discards the top 2 cards of their deck.",
+				"One hero puts an equipment card from their trash into play."
+			],
+			"flippedIcons": [
+				"UsePowerNow",
+				"Discard",
+				"PlayCardNow"
+			],
+			"openingLines": {
+				"default": "Finders keepers"
+			},
+			"complexity": 2
+		},
+		{
+			"identifier": "DebilitatingStrike",
+			"count": 2,
+			"title": "Debilitating Strike",
+			"keywords": [
+				"ongoing",
+				"limited"
+			],
+			"icons": [
+				"IncreaseDamageTaken"
+			],
+			"body": [
+				"The first time each turn {Thief} deals damage to a non-hero target, increase damage hero sources deal to that target by 1 until the start of {Thief}'s next turn."
+			]
+		},
+		{
+			"identifier": "HinderingStrike",
+			"count": 2,
+			"title": "Hindering Strike",
+			"keywords": [
+				"ongoing",
+				"limited"
+			],
+			"icons": [
+				"ReduceDamageDealt"
+			],
+			"body": [
+				"The first time each turn {Thief} deals damage to a non-hero target, decrease damage dealt by that target by 1 until the start of {Theif}'s next turn."
+			]
+		},
+		{
+			"identifier": "ChainStrike",
+			"count": 2,
+			"title": "Chain Strike",
+			"keywords": [
+				"ongoing",
+				"limited"
+			],
+			"icons": [
+				"PlayCardNow"
+			],
+			"body": [
+				"The first time each turn {Thief} deals damage to a non-hero target, if it is not {Thief}'s turn, you may play a card."
+			]
+		},
+		{
+			"identifier": "Pickpocket",
+			"count": 2,
+			"title": "Pickpocket",
+			"keywords": [
+				"ongoing",
+				"limited"
+			],
+			"icons": [
+				"DrawCard"
+			],
+			"body": [
+				"The first time each turn {Thief} deals damage to a non-hero target, draw a card."
+			]
+		},
+		{
+			"identifier": "Backstab",
+			"count": 3,
+			"title": "Backstab",
+			"keywords": [
+				"ongoing"
+			],
+			"icons": [
+				"IncreaseDamageDealt"
+			],
+			"body": [
+				"Whenever thief deals damage during a turn other than her own, increase that damage by 2."
+			]
+		},
+		{
+			"identifier": "Opportunist",
+			"count": 2,
+			"title": "Opportunist",
+			"keywords": [
+				"ongoing"
+			],
+			"icons": [
+				"DealDamageMelee",
+				"DestroySelf"
+			],
+			"body": [
+				"When a hero character deals damage to a villain target, you may destroy this card. If you do, {Theif} deals that target 1 melee damage."
+			]
+		},
+		{
+			"identifier": "ImprovisedTrap",
+			"count": 2,
+			"title": "Improvised Trap",
+			"keywords": [
+				"equipment",
+				"trap"
+			],
+			"icons": [
+				"DealDamageProjectile",
+				"DestroySelf"
+			],
+			"body": [
+				"When a target enters play, you may destroy this card. If you do, {Thief} deals 3 projectile damage to that target"
+			]
+		},
+		{
+			"identifier": "Tripwire",
+			"count": 3,
+			"title": "Tripwire",
+			"keywords": [
+				"equipment",
+				"trap"
+			],
+			"icons": [
+				"DealDamageProjectile",
+			],
+			"body": [
+				"When a target enters play, {Thief} deals it 1 projectile damage."
+			]
+		},
+		{
+			"identifier": "SpringKnife",
+			"count": 2,
+			"title": "Spring Knife",
+			"keywords": [
+				"equipment",
+				"trap"
+			],
+			"icons": [
+				"DealDamageProjectile",
+				"DestroySelf"
+			],
+			"body": [
+				"When a villain card is played, destroy this card. If you do, {Thief} deals the villain character 2 damage."
+			]
+		},
+		{
+			"identifier": "PocketSand",
+			"count": 2,
+			"title": "Pocket Sand",
+			"keywords": [
+				"equipment",
+				"trap"
+			],
+			"icons": [
+				"CannotDealDamage",
+				"DestroySelf"
+			],
+			"body": [
+				"When a villain target enters play, destroy this card. That target cannot deal damage until the start of {Thief}'s next turn."
+			]
+		},
+		{
+			"identifier": "Trapmaster",
+			"count": 1,
+			"title": "Trapmaster",
+			"keywords": [
+				"ongoing",
+				"limited"
+			],
+			"icons": [
+				"PlayCardNow"
+			],
+			"body": [
+				"At the end of your turn, you may play a Trap card from your hand or discard pile."
+			]
+		},
+		{
+			"identifier": "Counterstrike",
+			"count": 3,
+			"title": "Counterstrike",
+			"keywords": [
+				"ongoing"
+			],
+			"icons": [
+				"CounterDamage",
+				"DealDamageMelee"
+			],
+			"body": [
+				"The first time a target damages {Thief} each turn, {Thief} deals that target 1 melee damage."
+			]
+		},
+		{
+			"identifier": "SuckerPunch",
+			"count": 3,
+			"title": "Sucker Punch",
+			"keywords": [
+				"one-shot"
+			],
+			"icons": [
+				"DealDamageMelee"
+			],
+			"body": [
+				"At the start of the villain turn, {Thief} deals the villain target with the lowest HP 1 melee damage."
+			]
+		},
+		{
+			"identifier": "Trapspotting",
+			"count": 2,
+			"title": "Trapspotting",
+			"keywords": [
+				"ongoing",
+				"limited"
+			],
+			"icons": [
+				"UsePowerNow"
+			],
+			"body": [
+				"When an environment target enters play, you may use a power."
+			]
+		},
+		{
+			"identifier": "ThrowingKnives",
+			"count": 2,
+			"title": "Throwing Knives",
+			"keywords": [
+				"equipment"
+			],
+			"icons": [
+				"HasPower",
+				"DealDamageProjectile"
+			],
+			"powers": [
+				"{Thief} deals up to three targets 1 projetile damage."
+			]
+		},
+		{
+			"identifier": "ConcealedBlade",
+			"count": 2,
+			"title": "Concealed Blade",
+			"keywords": [
+				"equipment"
+			],
+			"icons": [
+				"HasPower",
+				"DealDamageMelee"
+			],
+			"powers": [
+				"{Thief} deals one target 3 melee damage."
+			]
+		},
+		{
+			"identifier": "FluryOfBlades",
+			"count": 3,
+			"title": "Flury of Blades",
+			"keywords": [
+				"one-shot"
+			],
+			"icons": [
+				"DealDamageMelee"
+			],
+			"body": [
+				"{Thief} deals each non-hero target 1 melee damage."
+			]
+		},
+		{
+			"identifier": "TwoWeaponFighting",
+			"count": 2,
+			"title": "Two Weapon Fighting",
+			"keywords": [
+				"one-shot"
+			],
+			"icons": [
+				"DealDamageMelee"
+			],
+			"body": [
+				"{Thief} deals one target 3 melee damage",
+				"{Thief} deals one target 1 melee damage"
+			]
+		}
+	]
+}
