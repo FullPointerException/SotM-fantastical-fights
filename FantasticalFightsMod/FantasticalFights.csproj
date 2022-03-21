@@ -30,12 +30,13 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+
   <ItemGroup>
     <Reference Include="EngineCommon">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Sentinels of the Multiverse\Sentinels_Data\Managed\EngineCommon.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Sentinels of the Multiverse\Sentinels_Data\Managed\EngineCommon.dll</HintPath>
     </Reference>
     <Reference Include="SentinelsEngine">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Sentinels of the Multiverse\Sentinels_Data\Managed\SentinelsEngine.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Sentinels of the Multiverse\Sentinels_Data\Managed\SentinelsEngine.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -44,59 +45,26 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
+
   <ItemGroup>
-    <Compile Include="Controller\Villains\TheElementalist\Cards\AcidCloudCardController.cs" />
-    <Compile Include="Controller\Villains\TheElementalist\Cards\AntitoxinCardController.cs" />
-    <Compile Include="Controller\Villains\TheElementalist\Cards\AuraOfSilenceCardController.cs" />
-    <Compile Include="Controller\Villains\TheElementalist\Cards\ChannelDarknessCardController.cs" />
-    <Compile Include="Controller\Villains\TheElementalist\Cards\ChannelLightCardController.cs" />
-    <Compile Include="Controller\Villains\TheElementalist\Cards\FlameBarrierCardController.cs" />
-    <Compile Include="Controller\Villains\TheElementalist\Cards\FrostShieldCardController.cs" />
-    <Compile Include="Controller\Villains\TheElementalist\Cards\GroundingCardController.cs" />
-    <Compile Include="Controller\Villains\TheElementalist\Cards\HolyAspectCardController.cs" />
-    <Compile Include="Controller\Villains\TheElementalist\Cards\IceStormCardController.cs" />
-    <Compile Include="Controller\Villains\TheElementalist\Cards\IntangibilityCardController.cs" />
-    <Compile Include="Controller\Villains\TheElementalist\Cards\LightningBoltCardController.cs" />
-    <Compile Include="Controller\Villains\TheElementalist\Cards\MeteorRainCardController.cs" />
-    <Compile Include="Controller\Villains\TheElementalist\Cards\MindBlankCardController.cs" />
-    <Compile Include="Controller\Villains\TheElementalist\Cards\MindCrushCardController.cs" />
-    <Compile Include="Controller\Villains\TheElementalist\Cards\PrismaticBlastCardController.cs" />
-    <Compile Include="Controller\Villains\TheElementalist\Cards\PrismaticGlyphsCardController.cs" />
-    <Compile Include="Controller\Villains\TheElementalist\Cards\ScribeGlyphCardController.cs" />
-    <Compile Include="Controller\Villains\TheElementalist\Cards\SonicBoomCardController.cs" />
-    <Compile Include="Controller\Villains\TheElementalist\Cards\TimeStopCardController.cs" />
-    <Compile Include="Controller\Villains\TheElementalist\Cards\UnholyAspectCardController.cs" />
-    <Compile Include="Controller\Villains\TheElementalist\Cards\WindwallCardController.cs" />
-    <Compile Include="Controller\Villains\TheElementalist\CharacterCards\TheElementalistCharacterCardController.cs" />
-    <Compile Include="Controller\Villains\TheElementalist\CharacterCards\TheElementalistTurnTakerController.cs" />
-    <Compile Include="Controller\Villains\TheElementalist\Utilities\GlyphCardController.cs" />
+    <Compile Include="Controller\Villains\**\Cards\*.cs" />
+    <Compile Include="Controller\Villains\**\CharacterCards\*.cs" />
+    <Compile Include="Controller\Villains\**\Utilities\*.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+
   <ItemGroup>
-    <None Include="Controller\Environments\CryptOfTheForgottenGod\Cards\stub.org" />
-    <None Include="Controller\Environments\SacredReliquary\Cards\stub.org" />
-    <None Include="Controller\Environments\TempleOfTheSealedDemon\Cards\stub.org" />
-    <None Include="Controller\Heroes\Druid\Cards\stub.org" />
-    <None Include="Controller\Heroes\Druid\CharacterCards\stub.org" />
-    <None Include="Controller\Heroes\Priest\Cards\stub.org" />
-    <None Include="Controller\Heroes\Priest\CharacterCards\stub.org" />
-    <None Include="Controller\Heroes\Thief\Cards\stub.org" />
-    <None Include="Controller\Heroes\Thief\CharacterCards\stub.org" />
-    <None Include="Controller\Villains\Hydra\Cards\stub.org" />
-    <None Include="Controller\Villains\Hydra\CharacterCards\stub.org" />
-    <EmbeddedResource Include="DeckLists\Environment\CryptOfTheForgottenGodDeckList.json" />
-    <EmbeddedResource Include="DeckLists\Environment\SacredReliquaryDeckList.json" />
-    <EmbeddedResource Include="DeckLists\Environment\TempleOfTheSealedDemonDeckList.json" />
-    <EmbeddedResource Include="DeckLists\Hero\DruidDeckList.json" />
-    <EmbeddedResource Include="DeckLists\Hero\PriestDeckList.json" />
-    <EmbeddedResource Include="DeckLists\Hero\ThiefDeckList.json" />
-    <EmbeddedResource Include="DeckLists\Villain\HydraDeckList.json" />
-    <EmbeddedResource Include="DeckLists\Villain\TheElementalistDeckList.json">
+    <EmbeddedResource Include="DeckLists\**\*.json">
       <LogicalName>Fpe.DeckLists.%(EmbeddedResource.FileName).json</LogicalName>
     </EmbeddedResource>
-    <None Include="manifest.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="manifest.json">
+      <Link>manifest.json</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
