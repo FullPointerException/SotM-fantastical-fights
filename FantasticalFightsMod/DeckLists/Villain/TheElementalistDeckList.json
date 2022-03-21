@@ -71,13 +71,6 @@
 				"{Intangibility} is immune to melee damage.",
 				"{TheElementalist} is immune to melee damage."
 			],
-			"flavorQuotes": [
-				{
-					"identifier": "Barbarian",
-					"text": "I'm going to punch that guy in the face. Just as soon as I figure out how to touch him."
-				}
-			],
-			"flavorReference": "Barbarian, The Fall of Cedar Keep #2",
 			"hitpoints": 10
 		},
 		{
@@ -94,13 +87,6 @@
 				"{Windwall} is immune to projectile damage.",
 				"{TheElementalist} is immune to projectile damage."
 			],
-			"flavorQuotes": [
-				{
-					"identifier": "TheElementalist",
-					"text": "Yes. Yes. Keep firing your arrows. Surely one of them will work."
-				}
-			],
-			"flavorReference": "The Elementalist, The Fall of Cedar Keep #1",
 			"hitpoints": 10
 		},
 		{
@@ -117,13 +103,6 @@
 				"{FlameBarrier} is immune to fire damage.",
 				"{TheElementalist} is immune to fire damage."
 			],
-			"flavorQuotes": [
-				{
-					"identifier": "TheElementalist",
-					"text": "Burn! BURN! BUUUUUUUUUUUUURRRRRRRRN!"
-				}
-			],
-			"flavorReference": "The Elementalist, Spellbound Tales #92",
 			"hitpoints": 10
 		},
 		{
@@ -140,13 +119,6 @@
 				"{FrostShield} is immune to cold damage.",
 				"{TheElementalist} is immune to cold damage."
 			],
-			"flavorQuotes": [
-				{
-					"identifier": "Wizard",
-					"text": "Buddy, you need to chill out before someone gets hurt."
-				}
-			],
-			"flavorReference": "Wizard, Spellbound Tales #93",
 			"hitpoints": 10
 		},
 		{
@@ -163,13 +135,6 @@
 				"{Grounding} is immune to lightning damage.",
 				"{TheElementalist} is immune to lightning damage."
 			],
-			"flavorQuotes": [
-				{
-					"identifier": "Druid",
-					"text": "If he can withstand the mightest of mother nature's wrath, what hope do we have of stopping him?"
-				}
-			],
-			"flavorReference": "Druid, The Fall of Cedar Keep #4",
 			"hitpoints": 10
 		},
 		{
@@ -186,13 +151,6 @@
 				"{Antitoxin} is immune to toxic damage.",
 				"{TheElementalist} is immune to toxic damage."
 			],
-			"flavorQuotes": [
-				{
-					"identifier": "TheElementalist",
-					"text": "You seem surprised. My dear, if I could be stopped by something as trivial as a little bit of deadly poison, I would have died centuries ago."
-				}
-			],
-			"flavorReference": "The Elementalist, Spellbound Tales #36",
 			"hitpoints": 10
 		},
 		{
@@ -209,13 +167,6 @@
 				"{AuraOfSilence} is immune to sonic damage.",
 				"{TheElementalist} is immune to sonic damage."
 			],
-			"flavorQuotes": [
-				{
-					"identifier": "Bard",
-					"text": ".... ... .... ....... . ... .. ... .. ...... ... ...."
-				}
-			],
-			"flavorReference": "Bard, Spellbound Tales #93",
 			"hitpoints": 10
 		},
 		{
@@ -232,17 +183,6 @@
 				"{MindBlank} is immune to psychic damage.",
 				"{TheElementalist} is immune to psychic damage."
 			],
-			"flavorQuotes": [
-				{
-					"identifier": "Aboleth",
-					"text": "But how? You're nothing more than an empty shell!"
-				},
-				{
-					"identifier": "TheElementalist",
-					"text": "Just because you cannot hear my thoughts does not mean I am not having them. And right now, my thoughts are full of all the ways I want to hurt you"
-				}
-			],
-			"flavorReference": "Deep In Thought #5",
 			"hitpoints": 10
 		},
 		{
@@ -259,13 +199,6 @@
 				"{HolyAspect} is immune to radiant damage.",
 				"{TheElementalist} is immune to radiant damage."
 			],
-			"flavorQuotes": [
-				{
-					"identifier": "Priest",
-					"text": "TODO"
-				}
-			],
-			"flavorReference": "TODO",
 			"hitpoints": 10
 		},
 		{
@@ -282,13 +215,6 @@
 				"{UnholyAspect} is immune to infernal damage.",
 				"{TheElementalist} is immune to infernal damage."
 			],
-			"flavorQuotes": [
-				{
-					"itentifier": "Priest",
-					"text": "TODO"
-				}
-			],
-			"flavorReference": "TODO",
 			"hitpoints": 10
 		},
 		{
@@ -304,14 +230,7 @@
 			"body": [
 				"{TheElementalist} deals each non-villain target {H} fire damage.",
 				"If {FlameBarrier} is in play, {TheElementalist} deals each non-villain target {H} fire damage."
-			],
-			"flavorQuotes": [
-				{
-					"itentifier": "TheElementalist",
-					"text": "TODO"
-				}
-			],
-			"flavorReference": "TODO"
+			]
 		},
 		{
 			"identifier": "IceStorm",
@@ -327,14 +246,7 @@
 			"body": [
 				"{TheElementalist} deals the {H-2} hero characters with the highest HP 3 cold damage.",
 				"If {FrostShield} is in play, characters dealt damage this way cannot use powers until the start of the villain turn."
-			],
-			"flavorQuotes": [
-				{
-					"itentifier": "TheElementalist",
-					"text": "TODO"
-				}
-			],
-			"flavorReference": "TODO"
+			]
 		},
 		{
 			"identifier": "LightningBolt",
@@ -350,14 +262,7 @@
 			"body": [
 				"{TheElementalist} deals the {H-2} hero characters with the lowest HP 1 lightning damage.",
 				"If {Grounding} is in play, characters dealt damage this way cannot deal damage until the start of the villain turn."
-			],
-			"flavorQuotes": [
-				{
-					"itentifier": "TheElementalist",
-					"text": "TODO"
-				}
-			],
-			"flavorReference": "TODO"
+			]
 		},
 		{
 			"identifier": "AcidCloud",
@@ -373,14 +278,7 @@
 			"body": [
 				"{TheElementalist} deals each non-villain target 1 toxic damage.",
 				"If {Antitoxin} is in play, destroy all hero equipment cards."
-			],
-			"flavorQuotes": [
-				{
-					"itentifier": "TheElementalist",
-					"text": "TODO"
-				}
-			],
-			"flavorReference": "TODO"
+			]
 		},
 		{
 			"identifier": "SonicBoom",
@@ -396,14 +294,7 @@
 			"body": [
 				"{TheElementalist} deals each non-villain target 1 sonic damage.",
 				"If {AuraOfSilence} is in play, heroes dealt damage this way cannot play cards until the start of the villain turn."
-			],
-			"flavorQuotes": [
-				{
-					"itentifier": "TheElementalist",
-					"text": "TODO"
-				}
-			],
-			"flavorReference": "TODO"
+			]
 		},
 		{
 			"identifier": "MindCrush",
@@ -419,14 +310,7 @@
 			"body": [
 				"{TheElementalist} deals each non-villain target 1 psychic damage.",
 				"If {MindBlank} is in play, destroy all hero ongoing cards."
-			],
-			"flavorQuotes": [
-				{
-					"itentifier": "TheElementalist",
-					"text": "TODO"
-				}
-			],
-			"flavorReference": "TODO"
+			]
 		},
 		{
 			"identifier": "ChannelLight",
@@ -442,14 +326,7 @@
 			"body": [
 				"{TheElementalist} deals the hero target with the highest HP {H} radiant damage.",
 				"If {HolyAspect} is in play, all villain targets regain {H} HP."
-			],
-			"flavorQuotes": [
-				{
-					"itentifier": "TheElementalist",
-					"text": "TODO"
-				}
-			],
-			"flavorReference": "TODO"
+			]
 		},
 		{
 			"identifier": "ChannelDarkness",
@@ -485,14 +362,7 @@
 				"If you do, that glyph deals each hero target 1 damage of its damage type.",
 				"Otherwise, all glyphs regain 1 HP.",
 				"Play the top card of the villain deck."
-			],
-			"flavorQuotes": [
-				{
-					"itentifier": "TheElementalist",
-					"text": "TODO"
-				}
-			],
-			"flavorReference": "TODO"
+			]
 		},
 		{
 			"identifier": "PrismaticBlast",
@@ -508,14 +378,7 @@
 			"body": [
 				"Each glyph in play deals 1 damage of its type to all non-villain targets.",
 				"If there are no glyph cards in play, play the top card of the villain deck."
-			],
-			"flavorQuotes": [
-				{
-					"itentifier": "TheElementalist",
-					"text": "TODO"
-				}
-			],
-			"flavorReference": "TODO"
+			]
 		},
 		{
 			"identifier": "TimeStop",
@@ -530,14 +393,7 @@
 			],
 			"body": [
 				"Play the top 2 cards of the villain deck."
-			],
-			"flavorQuotes": [
-				{
-					"itentifier": "TheElementalist",
-					"text": "TODO"
-				}
-			],
-			"flavorReference": "TODO"
+			]
 		},
 		{
 			"identifier": "PrismaticGlyphs",
@@ -551,14 +407,7 @@
 			],
 			"body": [
 				"If any glyphs are in play, {TheElementalist} is immune to damage."
-			],
-			"flavorQuotes": [
-				{
-					"itentifier": "TheElementalist",
-					"text": "TODO"
-				}
-			],
-			"flavorReference": "TODO"
+			]
 		}
 	]
 }
