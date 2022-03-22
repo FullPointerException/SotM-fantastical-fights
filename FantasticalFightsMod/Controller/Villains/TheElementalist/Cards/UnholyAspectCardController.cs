@@ -15,5 +15,18 @@ namespace Fpe.TheElementalist
 			return DamageType.Infernal;
 		}
 
+		public override DamageType damageType()
+		{
+			return DamageType.Infernal;
+		}
+
+		public override void AddTriggers()
+		{
+			// {UnholyAspect} is immune to infernal damage.
+			AddImmuneToDamageTrigger((DealDamageAction action) => action.DamageType == DamageType.Infernal && action.Target == this.Card);
+			// {TheElementalist} is immune to infernal damage.
+			AddImmuneToDamageTrigger((DealDamageAction action) => action.DamageType == DamageType.Infernal && action.Target == this.CharacterCard);
+		}
+
 	}
 }
