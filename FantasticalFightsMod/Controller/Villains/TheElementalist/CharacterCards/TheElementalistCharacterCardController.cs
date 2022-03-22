@@ -5,8 +5,8 @@ namespace Fpe.TheElementalist
 {
     public class TheElementalistCharacterCardController : VillainCharacterCardController
     {
-        public TheElementalistCharacterCardController(Card card, TurnTakerController turnTakeController)
-            : base(card, turnTakeController)
+        public TheElementalistCharacterCardController(Card card, TurnTakerController turnTakerController)
+            : base(card, turnTakerController)
         {
 
         }

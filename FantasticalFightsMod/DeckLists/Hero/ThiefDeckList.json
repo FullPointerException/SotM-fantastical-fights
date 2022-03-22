@@ -132,7 +132,7 @@
 				"DestroySelf"
 			],
 			"body": [
-				"When a hero character deals damage to a villain target, you may destroy this card. If you do, {Theif} deals that target 1 melee damage."
+				"When a hero character deals damage to a villain target, you may destroy this card. If you do, {Thief} deals that target 1 melee damage."
 			]
 		},
 		{
@@ -312,8 +312,8 @@
 				"DealDamageMelee"
 			],
 			"body": [
-				"{Thief} deals one target 3 melee damage",
-				"{Thief} deals one target 1 melee damage"
+				"{Thief} deals one target 3 melee damage.",
+				"{Thief} deals one target 1 melee damage."
 			]
 		}
 	]
