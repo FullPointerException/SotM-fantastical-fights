@@ -8,23 +8,174 @@ namespace Fpe.TheElementalist
         public TheElementalistCharacterCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
-
+            // TODO show glyph count
         }
 
-        public override bool CanBeDestroyed => this.CharacterCard.IsFlipped;
 
         public override void AddSideTriggers()
         {
+            if(!base.Card.IsFlipped)
+            {
+                // At the start of the Villain turn, if there are no glyphs in play, {TheElementalist} flips.
+                base.SideTriggers.Add(base.AddStartOfTurnTrigger(
+                    (TurnTaker tt) => tt == base.TurnTaker,
+                    new Func<PhaseChangeAction, IEnumerator>(this.FrontStartOfTurnResponse),
+                    TriggerType.FlipCard));
+            }
+            else
+            {
+                // Whenever a glyph is played, play the top card of the villain deck.
+                base.SideTriggers.Add(base.AddTrigger<PlayCardAction>(
+                        (PlayCardAction pca) => (pca.CardToPlay.IsVillain && pca.CardToPlay.DoKeywordsContain("glyph")),
+                        this.PlayGlyphResponse, new TriggerType[] {TriggerType.PlayCard}, TriggerTiming.After));
+
+                // At the end of the villain turn, play the top card of the villain deck.
+                base.SideTriggers.Add(base.AddEndOfTurnTrigger(
+                    (TurnTaker tt) => tt == base.TurnTaker,
+                    new Func<PhaseChangeAction, IEnumerator>(this.BackEndOfTurnResponse),
+                    TriggerType.PlayCard));
+            }
+        }
+
+        //When {TheElementalist} would be destroyed, he flips instead.
+        public override bool CanBeDestroyed => this.CharacterCard.IsFlipped;
+
+        public override DestroyAttempted(DestroyCardAction destroyCard)
+        {
+            if(base.Card.IsFlipped)
+            {
+                yield break;
+            }
+
+            IEnumerator coroutine = base.GameController.FlipCard(this, treatAsPlayed: false, treatAsPutIntoPlay: false, actionSource: destroyCard.ActionSource, cardSource: GetCardSource());
+            if (base.UseUnityCoroutines)
+            {
+                yield return base.GameController.StartCoroutine(coroutine);
+            }
+            else
+            {
+                base.GameController.ExhaustCoroutine(coroutine);
+            }
+        }
+
+        public override IEnumerator AfterFlipCardImmediateResponse()
+        {
+            IEnumerator afterFlipRoutine = base.AfterFlipCardImmediateResponse();
+            if (base.UseUnityCoroutines)
+            {
+                yield return base.GameController.StartCoroutine(afterFlipRoutine);
+            }
+            else
+            {
+                base.GameController.ExhaustCoroutine(afterFlipRoutine);
+            }
+
+            // Whenever {TheElementalist} flips to this side, restore him to full HP
+            IEnumerator restoreHpRoutine = base.GameController.SetHP(this.Card, this.CharacterCard.MaximumHitPoints.Value, this.GetCardSource());
+            if (base.UseUnityCoroutines)
+            {
+                yield return base.GameController.StartCoroutine(restoreHpRoutine);
+            }
+            else
+            {
+                base.GameController.ExhaustCoroutine(restoreHpRoutine);
+            }
+
+            // Then destroy all glyphs in play
+            List<DestroyCardAction> destroyedCards;
+            IEnumerator destroyRoutine = base.GameController.DestroyCards(base.DecisionMaker,
+                new LinqCardCriteria((Card c) => c.IsInPlayAndHasGameText && c.DoKeywordsContain("glyph")),
+                autoDecide: true, storedResults: destroyedCards);
+            if(UseUnityCoroutines)
+            {
+                yield return base.GameController.StartCoroutine(destroyRoutine);
+            }
+            else
+            {
+                base.GameController.ExhaustCoroutine(destroyRoutine);
+            }
+
+            // For each glyphs destroyed this way, the elementalist deals himself X damage of that glyph's type,
+            // where X is that glyph's HP
+            foreach(DestroyCardAction a in destroyedCards)
+            {
+                if(a.WasCardDestoryed && a.CardToDestroy is GlyphCardController)
+                {
+                    GlyphCardController glyphController = (GlyphCardController)a.CardToDestroy;
+
+                    IEnumerator coroutine = base.DealDamage(this.Card, this.Card,
+                        a.HitPointsOfCardBeforeItWasDestroyed, glyphController.damageType());
+                    if(UseUnityCoroutines)
+                    {
+                        yield return this.GameController.StartCoroutine(coroutine);
+                    }
+                    else
+                    {
+                        this.GameController.ExhaustCoroutine(coroutine);
+                    }
+                }
+            }
+
+            // Shuffle the villain trash into the villain deck.
+            IEnumerator shuffleTrashIntoDeckRoutine = this.GameController.ShuffleTrashIntoDeck(this.TurnTakerController);
+            if (base.UseUnityCoroutines)
+            {
+                yield return base.GameController.StartCoroutine(shuffleTrashIntoDeckRoutine);
+            }
+            else
+            {
+                base.GameController.ExhaustCoroutine(shuffleTrashIntoDeckRoutine);
+            }
+        }
+
+
+        private IEnumerator FrontStartOfTurnResponse(PhaseChangeAction phaseChange)
+        {
             // At the start of the Villain turn, if there are no glyphs in play, {TheElementalist} flips.
-            
+            int numberOfGlyphs = base.FindCardsWhere((Card c) => base.IsVillainTarget(c) && c.IsInPlay && c.DoKeywordsContain("glyph"));
+            if(numberOfGlyphs == 0)
+            {
+                IEnumerator coroutine = base.GameController.FlipCard(this, cardSource: base.GetCardSource());
+                if (base.UseUnityCoroutines)
+                {
+                    yield return base.GameController.StartCoroutine(coroutine);
+                }
+                else
+                {
+                    base.GameController.ExhaustCoroutine(coroutine);
+                }
+            }
+        }
+
+        private IEnumerator BackEndOfTurnResponse(PhaseChangeAction phaseChange)
+        {
+	        // At the end of the villain turn, play the top card of the villain deck.
+            IEnumerator playCardRoutine = base.GameController.PlayTopCardOfLocation(this.TurnTakerController, this.TurnTaker.Deck, cardSource: base.GetCardSource());
+            if (base.UseUnityCoroutines)
+            {
+                yield return base.GameController.StartCoroutine(playCardRoutine);
+            }
+            else
+            {
+                base.GameController.ExhaustCoroutine(playCardRoutine);
+            }
+        }
+
+        private IEnumerator PlayGlyphResponse(PlayCardAction playCard)
+        {
+	        // Whenever a glyph is played, play the top card of the villain deck.
+            if(playCard.CardToPlay.DoKeywordsContain("glyph"))
+            {
+                IEnumerator playCardRoutine = base.GameController.PlayTopCardOfLocation(this.TurnTakerController, this.TurnTaker.Deck, cardSource: base.GetCardSource());
+                if (base.UseUnityCoroutines)
+                {
+                    yield return base.GameController.StartCoroutine(playCardRoutine);
+                }
+                else
+                {
+                    base.GameController.ExhaustCoroutine(playCardRoutine);
+                }
+            }
         }
     }
-
-    
-	//"When {TheElementalist} is destroyed, he flips."
-  
-
-    //"Whenever {TheElementalist} flips to this side, restore him to full HP. Then destroy all glyphs in play. For each glyphs destroyed this way, the elementalist deals himself 10 damage of that glyph's type. Shuffle the villain trash into the villain deck.",
-	//"Whenever a glyph is played, play the top card of the villain deck.",
-	//"At the end of the villain turn, play the top card of the villain deck."
 }

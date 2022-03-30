@@ -28,7 +28,7 @@
 			],
 			"gameplay": [
 				"If there are ever no glyphs in play, {TheElementalist} flips.",
-				"When {TheElementalist} is destroyed, he flips."
+				"When {TheElementalist} would be destroyed, he flips instead."
 			],
 			"advanced": "TODO",
 			"icons": [
@@ -39,8 +39,9 @@
 			],
 			"challengeTitle": "TODO",
 			"challengeText": "TODO",
+			"flippedBody": "Raging Sorceror",
 			"flippedGameplay": [
-				"Whenever {TheElementalist} flips to this side, restore him to full HP. Then destroy all glyphs in play. For each glyphs destroyed this way, the elementalist deals himself 10 damage of that glyph's type. Shuffle the villain trash into the villain deck.",
+				"Whenever {TheElementalist} flips to this side, restore him to full HP. Then destroy all glyphs in play. For each glyphs destroyed this way, the elementalist deals himself X damage of that glyph's type, where X is that glyph's HP. Shuffle the villain trash into the villain deck.",
 				"Whenever a glyph is played, play the top card of the villain deck.",
 				"At the end of the villain turn, play the top card of the villain deck."
 			],

@@ -18,7 +18,7 @@ namespace Fpe.TheElementalist
 		public override void AddTriggers()
 		{
 			// {Windwall} is immune to projectile damage.
-			AddImmuneToDamageTrigger((DealDamageAction action) => action.DamageType == DamageType.Projectile && action.Target == this.Card);
+s			AddImmuneToDamageTrigger((DealDamageAction action) => action.DamageType == DamageType.Projectile && action.Target == this.Card);
 			// {TheElementalist} is immune to projectile damage.
 			AddImmuneToDamageTrigger((DealDamageAction action) => action.DamageType == DamageType.Projectile && action.Target == this.CharacterCard);
 		}
