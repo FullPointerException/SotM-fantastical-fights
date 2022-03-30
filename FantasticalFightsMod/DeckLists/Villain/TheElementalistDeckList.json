@@ -358,7 +358,7 @@
 				"PlayCardNow"
 			],
 			"body": [
-				"Reveal cards from the villain trash until you reveal a glyph and put it into play.",
+				"Put a random glyph from the villain trash into play.",
 				"If you do, that glyph deals each hero target 1 damage of its damage type.",
 				"Otherwise, all glyphs regain 1 HP.",
 				"Play the top card of the villain deck."
