@@ -32,13 +32,16 @@
 			],
 			"advanced": "TODO",
 			"icons": [
-				"TODO"
+				"Manipulate"
 			],
 			"advancedIcons": [
 				"TODO"
 			],
-			"challengeTitle": "TODO",
-			"challengeText": "TODO",
+			"challengeTitle": "Self Sustaining Magic",
+			"challengeText": "At the end of the villain turn, all Villain targets regain X HP, where X is the number of glyphs in play",
+			"challengeIcons": [
+				"GainHP"
+			],
 			"flippedBody": "Raging Sorceror",
 			"flippedGameplay": [
 				"Whenever {TheElementalist} flips to this side, restore him to full HP. Then destroy all glyphs in play. For each glyphs destroyed this way, the elementalist deals himself X damage of that glyph's type, where X is that glyph's HP. Shuffle the villain trash into the villain deck.",

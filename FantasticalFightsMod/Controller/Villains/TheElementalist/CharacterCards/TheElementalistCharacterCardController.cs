@@ -35,6 +35,15 @@ namespace Fpe.TheElementalist
                     new Func<PhaseChangeAction, IEnumerator>(this.BackEndOfTurnResponse),
                     TriggerType.PlayCard));
             }
+
+            if(Game.IsChallenge)
+            {
+                // At the end of the villain turn, all Villain targets regain X HP, where X is the number of glyphs in play
+                base.SideTriggers.Add(base.AddEndOfTurnTrigger(
+                    (TurnTaker tt) => tt == base.TurnTaker,
+                    new Func<PhaseChangeAction, IEnumerator>(this.ChallengeEndOfTurnResponse),
+                    TriggerType.GainHP));
+            }
         }
 
         //When {TheElementalist} would be destroyed, he flips instead.
@@ -175,6 +184,21 @@ namespace Fpe.TheElementalist
                 {
                     base.GameController.ExhaustCoroutine(playCardRoutine);
                 }
+            }
+        }
+
+        private IEnumerator ChallengeEndOfTurnResponse(PhaseChangeAction phaseChange)
+        {
+            // At the end of the villain turn, all Villain targets regain X HP, where X is the number of glyphs in play
+            int numGlyphs = base.FindCardsWhere((Card c) => c.DoKeywordsContain("glyph"), visibleToCard: this.Card).Count();
+            IEnumerator healCoroutine = base.GameController.GainHP(this.DecisionMaker, (Card c) => c.IsVillain && c.IsTarget, numGlyphs, cardSource: base.GetCardSource());
+            if (base.UseUnityCoroutines)
+            {
+                yield return base.GameController.StartCoroutine(healCoroutine);
+            }
+            else
+            {
+                base.GameController.ExhaustCoroutine(healCoroutine);
             }
         }
     }
