@@ -31,7 +31,7 @@ namespace Fpe.TheElementalist
 			//If {FrostShield} is in play, characters dealt damage this way cannot use powers until the start of the villain turn.
 			bool isInPlay = this.GameController.IsCardInPlayAndNotUnderCard("FrostShield");
 
-			if(isInPlay)
+			if(isInPlay || base.IsGameAdvanced)
 			{
 				foreach(DealDamageAction t in targetResults)
 				{

@@ -17,29 +17,34 @@ namespace Fpe.TheElementalist
             if(!base.Card.IsFlipped)
             {
                 // At the start of the Villain turn, if there are no glyphs in play, {TheElementalist} flips.
-                base.SideTriggers.Add(base.AddStartOfTurnTrigger(
+                base.AddSideTrigger(base.AddStartOfTurnTrigger(
                     (TurnTaker tt) => tt == base.TurnTaker,
                     new Func<PhaseChangeAction, IEnumerator>(this.FrontStartOfTurnResponse),
                     TriggerType.FlipCard));
+
+                if(base.IsGameAdvanced)
+                {
+                    base.AddSideTrigger(base.AddReduceDamageTrigger(c => base.CharacterCard, (DealDamageAction dd) => this.glyphCount()));
+                }
             }
             else
             {
                 // Whenever a glyph is played, play the top card of the villain deck.
-                base.SideTriggers.Add(base.AddTrigger<PlayCardAction>(
+                base.AddSideTrigger(base.AddTrigger<PlayCardAction>(
                         (PlayCardAction pca) => (pca.CardToPlay.IsVillain && pca.CardToPlay.DoKeywordsContain("glyph")),
                         this.PlayGlyphResponse, new TriggerType[] {TriggerType.PlayCard}, TriggerTiming.After));
 
                 // At the end of the villain turn, play the top card of the villain deck.
-                base.SideTriggers.Add(base.AddEndOfTurnTrigger(
+                base.AddSideTrigger(base.AddEndOfTurnTrigger(
                     (TurnTaker tt) => tt == base.TurnTaker,
                     new Func<PhaseChangeAction, IEnumerator>(this.BackEndOfTurnResponse),
                     TriggerType.PlayCard));
             }
 
-            if(Game.IsChallenge)
+            if(base.IsGameChallenge)
             {
                 // At the end of the villain turn, all Villain targets regain X HP, where X is the number of glyphs in play
-                base.SideTriggers.Add(base.AddEndOfTurnTrigger(
+                base.AddSideTrigger(base.AddEndOfTurnTrigger(
                     (TurnTaker tt) => tt == base.TurnTaker,
                     new Func<PhaseChangeAction, IEnumerator>(this.ChallengeEndOfTurnResponse),
                     TriggerType.GainHP));
@@ -200,6 +205,11 @@ namespace Fpe.TheElementalist
             {
                 base.GameController.ExhaustCoroutine(healCoroutine);
             }
+        }
+
+        private int GlyphCount()
+        {
+            return base.FindCardsWhere((Card c) => c.DoKeywordsContain("glyph"), visibleToCard: this.Card).Count();
         }
     }
 }

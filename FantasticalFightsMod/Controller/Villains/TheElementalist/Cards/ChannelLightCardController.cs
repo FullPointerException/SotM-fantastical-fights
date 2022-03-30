@@ -26,7 +26,7 @@ namespace Fpe.TheElementalist
             }
 			// If {HolyAspect} is in play, all villain targets regain {H} HP.
             bool isInPlay = this.GameController.IsCardInPlayAndNotUnderCard("HolyAspect");
-            if(isInPlay)
+            if(isInPlay || base.IsGameAdvanced)
             {
             	coroutine = this.GameController.GainHP(this.DecisionMaker, (Card c) => c.IsVillain && c.IsTarget, Game.H);
 				if (base.UseUnityCoroutines)

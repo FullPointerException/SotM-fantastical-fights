@@ -26,7 +26,7 @@ namespace Fpe.TheElementalist
 
 			// If {FlameBarrier} is in play, {TheElementalist} deals each non-villain target {H} fire damage.
 			bool isInPlay = this.GameController.IsCardInPlayAndNotUnderCard("FlameBarrier");
-			if(isInPlay)
+			if(isInPlay || base.IsGameAdvanced)
 			{
 				coroutine = DealDamage(base.CharacterCard, (Card c) => !c.IsVillain && c.IsTarget, 5, DamageType.Fire);
 				if(UseUnityCoroutines)

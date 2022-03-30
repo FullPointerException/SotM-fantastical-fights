@@ -28,7 +28,7 @@ namespace Fpe.TheElementalist
 			//If {AuraOfSilence} is in play, heroes dealt damage this way cannot play cards until the start of the villain turn."
 			bool isInPlay = this.GameController.IsCardInPlayAndNotUnderCard("AuraOfSilence");
 
-			if(isInPlay)
+			if(isInPlay || base.IsGameAdvanced)
 			{
 				foreach(DealDamageAction t in targetResults)
 				{

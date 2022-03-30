@@ -26,7 +26,7 @@ namespace Fpe.TheElementalist
 
 			// If {Antitoxin} is in play, destroy all hero equipment cards.
 			bool isInPlay = this.GameController.IsCardInPlayAndNotUnderCard("Antitoxin");
-			if(isInPlay)
+			if(isInPlay || base.IsGameAdvanced)
 			{
 				coroutine = this.GameController.DestroyCards(DecisionMaker, new LinqCardCriteria((Card c) => c.IsInPlayAndHasGameText && IsEquipment(c)));
 				if(UseUnityCoroutines)

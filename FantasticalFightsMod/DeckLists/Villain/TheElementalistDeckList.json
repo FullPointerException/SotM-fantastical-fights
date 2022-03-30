@@ -30,12 +30,12 @@
 				"If there are ever no glyphs in play, {TheElementalist} flips.",
 				"When {TheElementalist} would be destroyed, he flips instead."
 			],
-			"advanced": "TODO",
+			"advanced": "Reduce damage dealt to {TheElementalist} by 1 for each glyph in play.",
 			"icons": [
 				"Manipulate"
 			],
 			"advancedIcons": [
-				"TODO"
+				"ReduceDamageTaken"
 			],
 			"challengeTitle": "Self Sustaining Magic",
 			"challengeText": "At the end of the villain turn, all Villain targets regain X HP, where X is the number of glyphs in play",
@@ -48,12 +48,12 @@
 				"Whenever a glyph is played, play the top card of the villain deck.",
 				"At the end of the villain turn, play the top card of the villain deck."
 			],
-			"flippedAdvnced": "TODO",
+			"flippedAdvnced": "When {TheElementalist} plays a spell that checks if a specific glyph is in play, treat it as though that glyph is in play.",
 			"flippedIcons": [
 				"PlayCardNow"
 			],
 			"flippedAdvancedIcons": [
-				"TODO"
+				"IncreaseDamageDealt"
 			],
 			"difficulty": 2,
 			"openingLines": {
@@ -226,7 +226,8 @@
 			"count": 1,
 			"title": "Meteor Rain",
 			"keywords": [
-				"one-shot"
+				"one-shot",
+				"spell"
 			],
 			"icons": [
 				"DealDamageFire"
@@ -241,7 +242,8 @@
 			"count": 1,
 			"title": "Ice Storm",
 			"keywords": [
-				"one-shot"
+				"one-shot",
+				"spell"
 			],
 			"icons": [
 				"DealDamageCold",
@@ -257,7 +259,8 @@
 			"count": 1,
 			"title": "Lightning Bolt",
 			"keywords": [
-				"one-shot"
+				"one-shot",
+				"spell"
 			],
 			"icons": [
 				"DealDamageLightning",
@@ -273,7 +276,8 @@
 			"count": 1,
 			"title": "Acid Cloud",
 			"keywords": [
-				"one-shot"
+				"one-shot",
+				"spell"
 			],
 			"icons": [
 				"DealDamageToxic",
@@ -289,7 +293,8 @@
 			"count": 1,
 			"title": "Sonic Boom",
 			"keywords": [
-				"one-shot"
+				"one-shot",
+				"spell"
 			],
 			"icons": [
 				"DealDamageSonic",
@@ -305,7 +310,8 @@
 			"count": 1,
 			"title": "Mind Crush",
 			"keywords": [
-				"one-shot"
+				"one-shot",
+				"spell"
 			],
 			"icons": [
 				"DealDamagePsychic",
@@ -321,7 +327,8 @@
 			"count": 1,
 			"title": "Channel Light",
 			"keywords": [
-				"one-shot"
+				"one-shot",
+				"spell"
 			],
 			"icons": [
 				"DealDamageRadiant",
@@ -337,7 +344,8 @@
 			"count": 1,
 			"title": "Channel Darkness",
 			"keywords": [
-				"one-shot"
+				"one-shot",
+				"spell"
 			],
 			"icons": [
 				"DealDamageInfernal",
@@ -353,7 +361,8 @@
 			"count": 2,
 			"title": "Scribe Glyph",
 			"keywords": [
-				"one-shot"
+				"one-shot",
+				"spell"
 			],
 			"icons": [
 				"Search",
@@ -373,7 +382,8 @@
 			"count": 2,
 			"title": "Prismatic Blast",
 			"keywords": [
-				"one-shot"
+				"one-shot",
+				"spell"
 			],
 			"icons": [
 				"DealDamage",
@@ -389,7 +399,8 @@
 			"count": 1,
 			"title": "Time Stop",
 			"keywords": [
-				"one-shot"
+				"one-shot",
+				"spell"
 			],
 			"icons": [
 				"PlayCardNow",

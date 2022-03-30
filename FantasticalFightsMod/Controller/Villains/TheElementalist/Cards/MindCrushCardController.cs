@@ -26,7 +26,7 @@ namespace Fpe.TheElementalist
 
 			// If {MindBlank} is in play, destroy all hero ongoing cards.
 			bool isInPlay = this.GameController.IsCardInPlayAndNotUnderCard("Antitoxin");
-			if(isInPlay)
+			if(isInPlay || base.IsGameAdvanced)
 			{
 				coroutine = this.GameController.DestroyCards(DecisionMaker, new LinqCardCriteria((Card c) => c.IsInPlayAndHasGameText && c.IsOngoing));
 				if(UseUnityCoroutines)

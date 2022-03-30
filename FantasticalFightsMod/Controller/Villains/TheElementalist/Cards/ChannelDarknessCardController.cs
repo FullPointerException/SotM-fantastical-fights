@@ -31,7 +31,7 @@ namespace Fpe.TheElementalist
 			// If {UnholyAspect} is in play, all hero characters damaged this way discard all but 1 card.
 			bool isInPlay = this.GameController.IsCardInPlayAndNotUnderCard("UnholyAspect");
 
-			if(isInPlay)
+			if(isInPlay || base.IsGameAdvanced)
 			{
 				foreach(DealDamageAction t in targetResults)
 				{
