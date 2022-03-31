@@ -62,9 +62,9 @@
 			}
 		},
 		{
-			"identifier": "Intangibility",
+			"identifier": "EnergyArmor",
 			"count": 1,
-			"title": "Intangibility",
+			"title": "Energy Armor",
 			"keywords": [
 				"glyph"
 			],
@@ -72,8 +72,8 @@
 				"ImmuneToDamageMelee"
 			],
 			"body": [
-				"{Intangibility} is immune to melee damage.",
-				"{TheElementalist} is immune to melee damage."
+				"{EnergyArmor} is immune to energy damage.",
+				"{TheElementalist} is immune to energy damage."
 			],
 			"hitpoints": 10
 		},
