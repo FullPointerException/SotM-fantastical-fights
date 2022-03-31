@@ -14,8 +14,24 @@ namespace Fpe.TheElementalist
 		public override void AddTriggers()
 		{
 			// If any glyphs are in play, {TheElementalist} is immune to damage.
-			base.AddImmuneToDamageTrigger((DealDamageAction d) => d.Target == base.CharacterCard &&
-				base.FindCardsWhere((Card c) => c.DoKeywordsContain("glyph"), true).Any());
+			this.AddTrigger<DealDamageAction>(
+				dda => dda.Target == this.CharacterCard,
+				this.ImmuneIfAnyGlyphsInPlayResponse,
+				TriggerType.ImmuneToDamage,
+				TriggerTiming.Before);
+		}
+
+		private IEnumerator ImmuneIfAnyGlyphsInPlayResponse(DealDamageAction dda)
+		{
+			bool anyGlyphs = this.FindCardsWhere((Card c) => c.DoKeywordsContain("glyph")).Any();
+			if(anyGlyphs)
+			{
+				return this.CharacterCard.ImmuneToDamageResponse(dda);
+			}
+			else
+			{
+				return DoNothing();
+			}
 		}
 	}
 }
