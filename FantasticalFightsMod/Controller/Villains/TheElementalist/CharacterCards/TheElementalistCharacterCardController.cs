@@ -28,8 +28,10 @@ namespace Fpe.TheElementalist
 
                 if(base.IsGameAdvanced)
                 {
-                    // TODO Figure this out
-                    //base.AddSideTrigger(base.AddReduceDamageTrigger((Card c) => c == base.CharacterCard, (DealDamageAction dd) => this.GlyphCount()));
+                    // Reduce damage dealt to {TheElementalist} by 1 for each glyph in play.
+                    base.AddSideTrigger(base.AddReduceDamageTrigger(
+                        (DealDamageAction dda) => dda.Target == base.CharacterCard,
+                        (DealDamageAction dda) => this.GlyphCount()));
                 }
             }
             else
