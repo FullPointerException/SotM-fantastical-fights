@@ -1,5 +1,6 @@
 using Handelabra.Sentinels.Engine.Model;
 using Handelabra.Sentinels.Engine.Controller;
+using System.Collections;
 
 namespace Fpe.TheElementalist
 {
@@ -14,7 +15,7 @@ namespace Fpe.TheElementalist
 		{
 			// Play the top 2 cards of the villain deck.
             IEnumerator coroutine = base.GameController.PlayTopCard(this.DecisionMaker, base.TurnTakerController,
-            	numberOfCards: 2, cardSource: base.GetCardSource);
+            	numberOfCards: 2, cardSource: base.GetCardSource());
             if (base.UseUnityCoroutines)
             {
                 yield return base.GameController.StartCoroutine(coroutine);

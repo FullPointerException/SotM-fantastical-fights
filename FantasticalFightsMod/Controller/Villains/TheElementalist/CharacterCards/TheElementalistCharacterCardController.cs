@@ -1,5 +1,9 @@
 ﻿using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Fpe.TheElementalist
 {
@@ -24,7 +28,8 @@ namespace Fpe.TheElementalist
 
                 if(base.IsGameAdvanced)
                 {
-                    base.AddSideTrigger(base.AddReduceDamageTrigger(c => base.CharacterCard, (DealDamageAction dd) => this.glyphCount()));
+                    // TODO Figure this out
+                    //base.AddSideTrigger(base.AddReduceDamageTrigger((Card c) => c == base.CharacterCard, (DealDamageAction dd) => this.GlyphCount()));
                 }
             }
             else
@@ -54,7 +59,7 @@ namespace Fpe.TheElementalist
         //When {TheElementalist} would be destroyed, he flips instead.
         public override bool CanBeDestroyed => this.CharacterCard.IsFlipped;
 
-        public override DestroyAttempted(DestroyCardAction destroyCard)
+        public override IEnumerator DestroyAttempted(DestroyCardAction destroyCard)
         {
             if(base.Card.IsFlipped)
             {
@@ -96,7 +101,7 @@ namespace Fpe.TheElementalist
             }
 
             // Then destroy all glyphs in play
-            List<DestroyCardAction> destroyedCards;
+            List<DestroyCardAction> destroyedCards = new List<DestroyCardAction>();
             IEnumerator destroyRoutine = base.GameController.DestroyCards(base.DecisionMaker,
                 new LinqCardCriteria((Card c) => c.IsInPlayAndHasGameText && c.DoKeywordsContain("glyph")),
                 autoDecide: true, storedResults: destroyedCards);
@@ -113,12 +118,12 @@ namespace Fpe.TheElementalist
             // where X is that glyph's HP
             foreach(DestroyCardAction a in destroyedCards)
             {
-                if(a.WasCardDestoryed && a.CardToDestroy is GlyphCardController)
+                if(a.WasCardDestroyed && a.CardToDestroy is GlyphCardController)
                 {
                     GlyphCardController glyphController = (GlyphCardController)a.CardToDestroy;
 
-                    IEnumerator coroutine = base.DealDamage(this.Card, this.Card,
-                        a.HitPointsOfCardBeforeItWasDestroyed, glyphController.damageType());
+                    IEnumerator coroutine = base.DealDamage(this.Card, c => c == this.Card,
+                       c => a.HitPointsOfCardBeforeItWasDestroyed, glyphController.damageType());
                     if(UseUnityCoroutines)
                     {
                         yield return this.GameController.StartCoroutine(coroutine);
@@ -146,7 +151,7 @@ namespace Fpe.TheElementalist
         private IEnumerator FrontStartOfTurnResponse(PhaseChangeAction phaseChange)
         {
             // At the start of the Villain turn, if there are no glyphs in play, {TheElementalist} flips.
-            int numberOfGlyphs = base.FindCardsWhere((Card c) => base.IsVillainTarget(c) && c.IsInPlay && c.DoKeywordsContain("glyph"));
+            int numberOfGlyphs = base.FindCardsWhere((Card c) => base.IsVillainTarget(c) && c.IsInPlay && c.DoKeywordsContain("glyph")).Count();
             if(numberOfGlyphs == 0)
             {
                 IEnumerator coroutine = base.GameController.FlipCard(this, cardSource: base.GetCardSource());
@@ -195,7 +200,7 @@ namespace Fpe.TheElementalist
         private IEnumerator ChallengeEndOfTurnResponse(PhaseChangeAction phaseChange)
         {
             // At the end of the villain turn, all Villain targets regain X HP, where X is the number of glyphs in play
-            int numGlyphs = base.FindCardsWhere((Card c) => c.DoKeywordsContain("glyph"), visibleToCard: this.Card).Count();
+            int numGlyphs = base.FindCardsWhere((Card c) => c.DoKeywordsContain("glyph")).Count();
             IEnumerator healCoroutine = base.GameController.GainHP(this.DecisionMaker, (Card c) => c.IsVillain && c.IsTarget, numGlyphs, cardSource: base.GetCardSource());
             if (base.UseUnityCoroutines)
             {
@@ -209,7 +214,7 @@ namespace Fpe.TheElementalist
 
         private int GlyphCount()
         {
-            return base.FindCardsWhere((Card c) => c.DoKeywordsContain("glyph"), visibleToCard: this.Card).Count();
+            return base.FindCardsWhere((Card c) => c.DoKeywordsContain("glyph")).Count();
         }
     }
 }

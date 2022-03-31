@@ -1,5 +1,6 @@
 using Handelabra.Sentinels.Engine.Model;
 using Handelabra.Sentinels.Engine.Controller;
+using System.Linq;
 
 namespace Fpe.TheElementalist
 {
@@ -10,11 +11,11 @@ namespace Fpe.TheElementalist
 		{
 		}
 
-		public override AddTriggers()
+		public override void AddTriggers()
 		{
 			// If any glyphs are in play, {TheElementalist} is immune to damage.
 			base.AddImmuneToDamageTrigger((DealDamageAction d) => d.Target == base.CharacterCard &&
-				base.FindCardsWhere((Card c) => c.DoKeywordsContain("glyph"), true, base.CharacterCard));
+				base.FindCardsWhere((Card c) => c.DoKeywordsContain("glyph"), true).Any());
 		}
 	}
 }

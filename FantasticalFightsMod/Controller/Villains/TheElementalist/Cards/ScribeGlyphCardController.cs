@@ -1,5 +1,8 @@
 using Handelabra.Sentinels.Engine.Model;
 using Handelabra.Sentinels.Engine.Controller;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Fpe.TheElementalist
 {
@@ -17,12 +20,12 @@ namespace Fpe.TheElementalist
 
 			// Put a random glyph from the villain trash into play.
 			bool trashHasGlyph = base.TurnTaker.Trash.Cards.Any((Card c) => c.DoKeywordsContain("glyph"));
-			List<Card> playedGlyphs;
+			List<Card> playedGlyphs = new List<Card>();
 
 			if(trashHasGlyph)
 			{
 				IEnumerator returnGlyphCoroutine = base.RevealCards_MoveMatching_ReturnNonMatchingCards(
-					base.turnTakerController, base.turnTaker.Trash,	false, true, false,
+					base.TurnTakerController, base.TurnTaker.Trash,	false, true, false,
 						new LinqCardCriteria((Card c) => c.DoKeywordsContain("glyph")),
 						new int?(1), shuffleSourceAfterwards: false, storedPlayResults: playedGlyphs);
                 if (base.UseUnityCoroutines)
@@ -45,7 +48,7 @@ namespace Fpe.TheElementalist
 				{
 					GlyphCardController glyphController = (GlyphCardController)cardController;
 					IEnumerator damageCoroutine =
-						DealDamage(card, (Card c) => !c.IsVillain && c.IsTarget, 1, glyphController.damageType());
+						DealDamage(this.Card, (Card c) => !c.IsVillain && c.IsTarget, 1, glyphController.damageType());
 					if(UseUnityCoroutines)
 					{
 						yield return this.GameController.StartCoroutine(damageCoroutine);
@@ -71,7 +74,7 @@ namespace Fpe.TheElementalist
 			}
 
 			// Play the top card of the villain deck.
-            IEnumerator playCoroutine = base.GameController.PlayTopCard(this.DecisionMaker, base.TurnTakerController, cardSource: base.GetCardSource);
+            IEnumerator playCoroutine = base.GameController.PlayTopCard(this.DecisionMaker, base.TurnTakerController, cardSource: base.GetCardSource());
             if (base.UseUnityCoroutines)
             {
                 yield return base.GameController.StartCoroutine(playCoroutine);
