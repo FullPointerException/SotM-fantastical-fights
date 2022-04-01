@@ -1,5 +1,6 @@
 using Handelabra.Sentinels.Engine.Model;
 using Handelabra.Sentinels.Engine.Controller;
+using System.Collections;
 using System.Linq;
 
 namespace Fpe.TheElementalist
@@ -26,7 +27,7 @@ namespace Fpe.TheElementalist
 			bool anyGlyphs = this.FindCardsWhere((Card c) => c.DoKeywordsContain("glyph")).Any();
 			if(anyGlyphs)
 			{
-				return this.CharacterCard.ImmuneToDamageResponse(dda);
+				return this.ImmuneToDamageResponse(dda);
 			}
 			else
 			{
