@@ -30,7 +30,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-
   <ItemGroup>
     <Reference Include="EngineCommon">
       <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Sentinels of the Multiverse\Sentinels_Data\Managed\EngineCommon.dll</HintPath>
@@ -45,26 +44,55 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
-
   <ItemGroup>
-    <Compile Include="Controller\Villains\**\Cards\*.cs" />
+    <Compile Include="Controller\Villains\TheElementalist\Cards\AcidCloudCardController.cs" />
+    <Compile Include="Controller\Villains\TheElementalist\Cards\AntitoxinCardController.cs" />
+    <Compile Include="Controller\Villains\TheElementalist\Cards\AuraOfSilenceCardController.cs" />
+    <Compile Include="Controller\Villains\TheElementalist\Cards\ChannelDarknessCardController.cs" />
+    <Compile Include="Controller\Villains\TheElementalist\Cards\ChannelLightCardController.cs" />
+    <Compile Include="Controller\Villains\TheElementalist\Cards\EnergyArmorCardController.cs" />
+    <Compile Include="Controller\Villains\TheElementalist\Cards\EnergyArmorCardController.cs" />
+    <Compile Include="Controller\Villains\TheElementalist\Cards\FlameBarrierCardController.cs" />
+    <Compile Include="Controller\Villains\TheElementalist\Cards\FrostShieldCardController.cs" />
+    <Compile Include="Controller\Villains\TheElementalist\Cards\GroundingCardController.cs" />
+    <Compile Include="Controller\Villains\TheElementalist\Cards\HolyAspectCardController.cs" />
+    <Compile Include="Controller\Villains\TheElementalist\Cards\IceStormCardController.cs" />
+    <Compile Include="Controller\Villains\TheElementalist\Cards\LightningBoltCardController.cs" />
+    <Compile Include="Controller\Villains\TheElementalist\Cards\MeteorRainCardController.cs" />
+    <Compile Include="Controller\Villains\TheElementalist\Cards\MindBlankCardController.cs" />
+    <Compile Include="Controller\Villains\TheElementalist\Cards\MindCrushCardController.cs" />
+    <Compile Include="Controller\Villains\TheElementalist\Cards\PrismaticBlastCardController.cs" />
+    <Compile Include="Controller\Villains\TheElementalist\Cards\PrismaticGlyphsCardController.cs" />
+    <Compile Include="Controller\Villains\TheElementalist\Cards\ScribeGlyphCardController.cs" />
+    <Compile Include="Controller\Villains\TheElementalist\Cards\SonicBoomCardController.cs" />
+    <Compile Include="Controller\Villains\TheElementalist\Cards\TimeStopCardController.cs" />
+    <Compile Include="Controller\Villains\TheElementalist\Cards\UnholyAspectCardController.cs" />
+    <Compile Include="Controller\Villains\TheElementalist\Cards\WindwallCardController.cs" />
     <Compile Include="Controller\Villains\**\CharacterCards\*.cs" />
     <Compile Include="Controller\Villains\**\Utilities\*.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-
   <ItemGroup>
     <EmbeddedResource Include="DeckLists\**\*.json">
       <LogicalName>Fpe.DeckLists.%(EmbeddedResource.FileName).json</LogicalName>
     </EmbeddedResource>
   </ItemGroup>
-
   <ItemGroup>
     <Content Include="manifest.json">
       <Link>manifest.json</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-
+  <ItemGroup>
+    <None Include="..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </None>
+    <None Include="packages.config" />
+    <AdditionalFiles Include="stylecop.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,58 +1,57 @@
-using Handelabra.Sentinels.Engine.Model;
-using Handelabra.Sentinels.Engine.Controller;
-using System.Collections;
-using System.Collections.Generic;
-
 namespace Fpe.TheElementalist
 {
-	public class IceStormCardController : CardController
-	{
-		public IceStormCardController(Card card, TurnTakerController turnTakerController)
-			: base(card, turnTakerController)
-		{
+    using System.Collections;
+    using System.Collections.Generic;
+    using Handelabra.Sentinels.Engine.Controller;
+    using Handelabra.Sentinels.Engine.Model;
 
-		}
+    public class IceStormCardController : CardController
+    {
+        public IceStormCardController(Card card, TurnTakerController turnTakerController)
+            : base(card, turnTakerController)
+        {
+        }
 
-		public override IEnumerator Play()
-		{
-			List<DealDamageAction> targetResults = new List<DealDamageAction>();
+        public override IEnumerator Play()
+        {
+            List<DealDamageAction> targetResults = new List<DealDamageAction>();
 
-			// {TheElementalist} deals the {H-2} hero characters with the highest HP 3 cold damage.
-			IEnumerator coroutine = base.DealDamageToHighestHP(base.CharacterCard, 1, (Card c) => c.IsHero && c.IsTarget && c.IsCharacter, (Card c) => 3, DamageType.Cold, numberOfTargets: () => (Game.H - 2), storedResults: targetResults);
-            if (base.UseUnityCoroutines)
+            // {TheElementalist} deals the {H-2} hero characters with the highest HP 3 cold damage.
+            IEnumerator coroutine = this.DealDamageToHighestHP(this.CharacterCard, 1, (Card c) => c.IsHero && c.IsTarget && c.IsCharacter, (Card c) => 3, DamageType.Cold, numberOfTargets: () => (this.Game.H - 2), storedResults: targetResults);
+            if (this.UseUnityCoroutines)
             {
-                yield return base.GameController.StartCoroutine(coroutine);
+                yield return this.GameController.StartCoroutine(coroutine);
             }
             else
             {
-                base.GameController.ExhaustCoroutine(coroutine);
+                this.GameController.ExhaustCoroutine(coroutine);
             }
 
-			//If {FrostShield} is in play, characters dealt damage this way cannot use powers until the start of the villain turn.
-			bool isInPlay = this.GameController.IsCardInPlayAndNotUnderCard("FrostShield");
+            // If {FrostShield} is in play, characters dealt damage this way cannot use powers until the start of the villain turn.
+            bool isInPlay = this.GameController.IsCardInPlayAndNotUnderCard("FrostShield");
 
-			if(isInPlay || base.IsGameAdvanced)
-			{
-				foreach(DealDamageAction t in targetResults)
-				{
-					if(t != null && t.Target != null && t.Target.IsHeroCharacterCard && t.DidDealDamage)
-					{
-						CannotUsePowersStatusEffect cannotUsePowers = new CannotUsePowersStatusEffect();
-						cannotUsePowers.TurnTakerCriteria.IsSpecificTurnTaker = t.Target.NativeDeck.OwnerTurnTaker;
-						cannotUsePowers.UntilStartOfNextTurn(base.TurnTaker);
+            if (isInPlay || this.IsGameAdvanced)
+            {
+                foreach (DealDamageAction t in targetResults)
+                {
+                    if (t != null && t.Target != null && t.Target.IsHeroCharacterCard && t.DidDealDamage)
+                    {
+                        CannotUsePowersStatusEffect cannotUsePowers = new CannotUsePowersStatusEffect();
+                        cannotUsePowers.TurnTakerCriteria.IsSpecificTurnTaker = t.Target.NativeDeck.OwnerTurnTaker;
+                        cannotUsePowers.UntilStartOfNextTurn(this.TurnTaker);
 
-						coroutine = base.AddStatusEffect(cannotUsePowers);
-            			if (base.UseUnityCoroutines)
-            			{
-                			yield return base.GameController.StartCoroutine(coroutine);
-            			}
-            			else
-            			{
-                			base.GameController.ExhaustCoroutine(coroutine);
-            			}
-					}
-				}
-			}
-		}
-	}
+                        coroutine = this.AddStatusEffect(cannotUsePowers);
+                        if (this.UseUnityCoroutines)
+                        {
+                            yield return this.GameController.StartCoroutine(coroutine);
+                        }
+                        else
+                        {
+                            this.GameController.ExhaustCoroutine(coroutine);
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

@@ -1,26 +1,27 @@
-using Handelabra.Sentinels.Engine.Model;
-using Handelabra.Sentinels.Engine.Controller;
-
 namespace Fpe.TheElementalist
 {
-	public class EnergyArmorCardController : GlyphCardController
-	{
-		public EnergyArmorCardController(Card card, TurnTakerController turnTakerController)
-			: base(card, turnTakerController)
-		{
-		}
+    using Handelabra.Sentinels.Engine.Controller;
+    using Handelabra.Sentinels.Engine.Model;
 
-		public override DamageType damageType()
-		{
-			return DamageType.Melee;
-		}
+    public class EnergyArmorCardController : GlyphCardController
+    {
+        public EnergyArmorCardController(Card card, TurnTakerController turnTakerController)
+            : base(card, turnTakerController)
+        {
+        }
 
-		public override void AddTriggers()
-		{
-			// {EnergyArmor} is immune to energy damage.
-			AddImmuneToDamageTrigger((DealDamageAction action) => action.DamageType == DamageType.Energy && action.Target == this.Card);
-			// {TheElementalist} is immune to energy damage.
-			AddImmuneToDamageTrigger((DealDamageAction action) => action.DamageType == DamageType.Energy && action.Target == this.CharacterCard);
-		}
-	}
+        public override DamageType DamageType()
+        {
+            return Handelabra.Sentinels.Engine.Model.DamageType.Energy;
+        }
+
+        public override void AddTriggers()
+        {
+            // {EnergyArmor} is immune to energy damage.
+            this.AddImmuneToDamageTrigger((DealDamageAction action) => action.DamageType == Handelabra.Sentinels.Engine.Model.DamageType.Energy && action.Target == this.Card);
+
+            // {TheElementalist} is immune to energy damage.
+            this.AddImmuneToDamageTrigger((DealDamageAction action) => action.DamageType == Handelabra.Sentinels.Engine.Model.DamageType.Energy && action.Target == this.CharacterCard);
+        }
+    }
 }

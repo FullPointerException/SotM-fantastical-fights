@@ -1,43 +1,43 @@
-using Handelabra.Sentinels.Engine.Model;
-using Handelabra.Sentinels.Engine.Controller;
-using System.Collections;
-
 namespace Fpe.TheElementalist
 {
-	public class AcidCloudCardController : CardController
-	{
-		public AcidCloudCardController(Card card, TurnTakerController turnTakerController)
-			: base(card, turnTakerController)
-		{
-		}
+    using System.Collections;
+    using Handelabra.Sentinels.Engine.Controller;
+    using Handelabra.Sentinels.Engine.Model;
 
-		public override IEnumerator Play()
-		{
-			// {TheElementalist} deals each non-villain target 1 toxic damage.
-			IEnumerator coroutine = DealDamage(base.CharacterCard, (Card c) => !c.IsVillain && c.IsTarget, 1, DamageType.Toxic);
-			if(UseUnityCoroutines)
-			{
-				yield return this.GameController.StartCoroutine(coroutine);
-			}
-			else
-			{
-				this.GameController.ExhaustCoroutine(coroutine);
-			}
+    public class AcidCloudCardController : CardController
+    {
+        public AcidCloudCardController(Card card, TurnTakerController turnTakerController)
+            : base(card, turnTakerController)
+        {
+        }
 
-			// If {Antitoxin} is in play, destroy all hero equipment cards.
-			bool isInPlay = this.GameController.IsCardInPlayAndNotUnderCard("Antitoxin");
-			if(isInPlay || base.IsGameAdvanced)
-			{
-				coroutine = this.GameController.DestroyCards(DecisionMaker, new LinqCardCriteria((Card c) => c.IsInPlayAndHasGameText && IsEquipment(c)));
-				if(UseUnityCoroutines)
-				{
-					yield return this.GameController.StartCoroutine(coroutine);
-				}
-				else
-				{
-					this.GameController.ExhaustCoroutine(coroutine);
-				}
-			}
-		}
-	}
+        public override IEnumerator Play()
+        {
+            // {TheElementalist} deals each non-villain target 1 toxic damage.
+            IEnumerator coroutine = this.DealDamage(this.CharacterCard, (Card c) => !c.IsVillain && c.IsTarget, 1, DamageType.Toxic);
+            if (this.UseUnityCoroutines)
+            {
+                yield return this.GameController.StartCoroutine(coroutine);
+            }
+            else
+            {
+                this.GameController.ExhaustCoroutine(coroutine);
+            }
+
+            // If {Antitoxin} is in play, destroy all hero equipment cards.
+            bool isInPlay = this.GameController.IsCardInPlayAndNotUnderCard("Antitoxin");
+            if (isInPlay || this.IsGameAdvanced)
+            {
+                coroutine = this.GameController.DestroyCards(this.DecisionMaker, new LinqCardCriteria((Card c) => c.IsInPlayAndHasGameText && this.IsEquipment(c)));
+                if (this.UseUnityCoroutines)
+                {
+                    yield return this.GameController.StartCoroutine(coroutine);
+                }
+                else
+                {
+                    this.GameController.ExhaustCoroutine(coroutine);
+                }
+            }
+        }
+    }
 }

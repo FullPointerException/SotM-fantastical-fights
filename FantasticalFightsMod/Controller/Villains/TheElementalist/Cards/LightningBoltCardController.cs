@@ -1,57 +1,63 @@
-using Handelabra.Sentinels.Engine.Model;
-using Handelabra.Sentinels.Engine.Controller;
-using System.Collections;
-using System.Collections.Generic;
-
 namespace Fpe.TheElementalist
 {
-	public class LightningBoltCardController : CardController
-	{
-		public LightningBoltCardController(Card card, TurnTakerController turnTakerController)
-			: base(card, turnTakerController)
-		{
+    using System.Collections;
+    using System.Collections.Generic;
+    using Handelabra.Sentinels.Engine.Controller;
+    using Handelabra.Sentinels.Engine.Model;
 
-		}
+    public class LightningBoltCardController : CardController
+    {
+        public LightningBoltCardController(Card card, TurnTakerController turnTakerController)
+            : base(card, turnTakerController)
+        {
+        }
 
-		public override IEnumerator Play()
-		{
-			List<DealDamageAction> targetResults = new List<DealDamageAction>();
+        public override IEnumerator Play()
+        {
+            List<DealDamageAction> targetResults = new List<DealDamageAction>();
 
-			// {TheElementalist} deals the {H-2} hero characters with the lowest HP 1 lightning damage.
-			IEnumerator coroutine = base.DealDamageToLowestHP(base.CharacterCard, 1, (Card c) => c.IsHero && c.IsTarget && c.IsCharacter, (Card c) => 3, DamageType.Lightning, numberOfTargets: Game.H - 2, storedResults: targetResults);
-            if (base.UseUnityCoroutines)
+            // {TheElementalist} deals the {H-2} hero characters with the lowest HP 1 lightning damage.
+            IEnumerator coroutine = this.DealDamageToLowestHP(
+                this.CharacterCard,
+                1,
+                (Card c) => c.IsHero && c.IsTarget && c.IsCharacter,
+                (Card c) => 3,
+                DamageType.Lightning,
+                numberOfTargets: this.Game.H - 2,
+                storedResults: targetResults);
+            if (this.UseUnityCoroutines)
             {
-                yield return base.GameController.StartCoroutine(coroutine);
+                yield return this.GameController.StartCoroutine(coroutine);
             }
             else
             {
-                base.GameController.ExhaustCoroutine(coroutine);
+                this.GameController.ExhaustCoroutine(coroutine);
             }
 
-			// If {Grounding} is in play, characters dealt damage this way cannot deal damage until the start of the villain turn.
-			bool isInPlay = this.GameController.IsCardInPlayAndNotUnderCard("Grounding");
+            // If {Grounding} is in play, characters dealt damage this way cannot deal damage until the start of the villain turn.
+            bool isInPlay = this.GameController.IsCardInPlayAndNotUnderCard("Grounding");
 
-			if(isInPlay || base.IsGameAdvanced)
-			{
-				foreach(DealDamageAction t in targetResults)
-				{
-					if(t != null && t.Target != null && t.Target.IsHeroCharacterCard && t.DidDealDamage)
-					{
-						CannotDealDamageStatusEffect cannotDealDamage = new CannotDealDamageStatusEffect();
-						cannotDealDamage.UntilStartOfNextTurn(base.TurnTaker);
+            if (isInPlay || this.IsGameAdvanced)
+            {
+                foreach (DealDamageAction t in targetResults)
+                {
+                    if (t != null && t.Target != null && t.Target.IsHeroCharacterCard && t.DidDealDamage)
+                    {
+                        CannotDealDamageStatusEffect cannotDealDamage = new CannotDealDamageStatusEffect();
+                        cannotDealDamage.UntilStartOfNextTurn(this.TurnTaker);
 
-						coroutine = base.AddStatusEffect(cannotDealDamage);
-            			if (base.UseUnityCoroutines)
-            			{
-                			yield return base.GameController.StartCoroutine(coroutine);
-            			}
-            			else
-            			{
-                			base.GameController.ExhaustCoroutine(coroutine);
-            			}
-					}
-				}
-			}
-		}
-	}
+                        coroutine = this.AddStatusEffect(cannotDealDamage);
+                        if (this.UseUnityCoroutines)
+                        {
+                            yield return this.GameController.StartCoroutine(coroutine);
+                        }
+                        else
+                        {
+                            this.GameController.ExhaustCoroutine(coroutine);
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

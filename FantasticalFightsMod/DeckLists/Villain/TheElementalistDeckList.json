@@ -18,7 +18,7 @@
 			"backgroundColor": "f2464c",
 			"foilBackgroundColor": "96C0C0",
 			"character": true,
-			"hitpoints": 100,
+			"hitpoints": 50,
 			"nemesisIdentifiers": [
 				"FpeFantasy.Wizard"
 			],
@@ -69,7 +69,7 @@
 				"glyph"
 			],
 			"icons": [
-				"ImmuneToDamageMelee"
+				"ImmuneToDamageEnergy"
 			],
 			"body": [
 				"{EnergyArmor} is immune to energy damage.",

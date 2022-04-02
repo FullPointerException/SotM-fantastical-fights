@@ -1,26 +1,27 @@
-using Handelabra.Sentinels.Engine.Model;
-using Handelabra.Sentinels.Engine.Controller;
-
 namespace Fpe.TheElementalist
 {
-	public class HolyAspectCardController : GlyphCardController
-	{
-		public HolyAspectCardController(Card card, TurnTakerController turnTakerController)
-			: base(card, turnTakerController)
-		{
-		}
+    using Handelabra.Sentinels.Engine.Controller;
+    using Handelabra.Sentinels.Engine.Model;
 
-		public override DamageType damageType()
-		{
-			return DamageType.Radiant;
-		}
+    public class HolyAspectCardController : GlyphCardController
+    {
+        public HolyAspectCardController(Card card, TurnTakerController turnTakerController)
+            : base(card, turnTakerController)
+        {
+        }
 
-		public override void AddTriggers()
-		{
-			// {HolyAspect} is immune to radiant damage.
-			AddImmuneToDamageTrigger((DealDamageAction action) => action.DamageType == DamageType.Radiant && action.Target == this.Card);
-			// {TheElementalist} is immune to radiant damage.
-			AddImmuneToDamageTrigger((DealDamageAction action) => action.DamageType == DamageType.Radiant && action.Target == this.CharacterCard);
-		}
-	}
+        public override DamageType DamageType()
+        {
+            return Handelabra.Sentinels.Engine.Model.DamageType.Radiant;
+        }
+
+        public override void AddTriggers()
+        {
+            // {HolyAspect} is immune to radiant damage.
+            this.AddImmuneToDamageTrigger((DealDamageAction action) => action.DamageType == Handelabra.Sentinels.Engine.Model.DamageType.Radiant && action.Target == this.Card);
+
+            // {TheElementalist} is immune to radiant damage.
+            this.AddImmuneToDamageTrigger((DealDamageAction action) => action.DamageType == Handelabra.Sentinels.Engine.Model.DamageType.Radiant && action.Target == this.CharacterCard);
+        }
+    }
 }

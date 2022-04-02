@@ -1,29 +1,32 @@
-using Handelabra.Sentinels.Engine.Model;
-using Handelabra.Sentinels.Engine.Controller;
-using System.Collections;
-
 namespace Fpe.TheElementalist
 {
-	public class TimeStopCardController : CardController
-	{
-		public TimeStopCardController(Card card, TurnTakerController turnTakerController)
-			: base(card, turnTakerController)
-		{
-		}
+    using System.Collections;
+    using Handelabra.Sentinels.Engine.Controller;
+    using Handelabra.Sentinels.Engine.Model;
 
-		public override IEnumerator Play()
-		{
-			// Play the top 2 cards of the villain deck.
-            IEnumerator coroutine = base.GameController.PlayTopCard(this.DecisionMaker, base.TurnTakerController,
-            	numberOfCards: 2, cardSource: base.GetCardSource());
-            if (base.UseUnityCoroutines)
+    public class TimeStopCardController : CardController
+    {
+        public TimeStopCardController(Card card, TurnTakerController turnTakerController)
+            : base(card, turnTakerController)
+        {
+        }
+
+        public override IEnumerator Play()
+        {
+            // Play the top 2 cards of the villain deck.
+            IEnumerator coroutine = this.GameController.PlayTopCard(
+                this.DecisionMaker,
+                this.TurnTakerController,
+                numberOfCards: 2,
+                cardSource: this.GetCardSource());
+            if (this.UseUnityCoroutines)
             {
-                yield return base.GameController.StartCoroutine(coroutine);
+                yield return this.GameController.StartCoroutine(coroutine);
             }
             else
             {
-                base.GameController.ExhaustCoroutine(coroutine);
+                this.GameController.ExhaustCoroutine(coroutine);
             }
-		}
-	}
+        }
+    }
 }

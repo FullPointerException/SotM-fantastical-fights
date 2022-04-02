@@ -1,57 +1,62 @@
-using Handelabra.Sentinels.Engine.Model;
-using Handelabra.Sentinels.Engine.Controller;
-using System.Collections;
-using System.Collections.Generic;
-
 namespace Fpe.TheElementalist
 {
-	public class SonicBoomCardController : CardController
-	{
-		public SonicBoomCardController(Card card, TurnTakerController turnTakerController)
-			: base(card, turnTakerController)
-		{
-		}
+    using System.Collections;
+    using System.Collections.Generic;
+    using Handelabra.Sentinels.Engine.Controller;
+    using Handelabra.Sentinels.Engine.Model;
 
-		public override IEnumerator Play()
-		{
-			List<DealDamageAction> targetResults = new List<DealDamageAction>();
-			//{TheElementalist} deals each non-villain target 1 sonic damage."
-			IEnumerator coroutine = DealDamage(base.CharacterCard, (Card c) => !c.IsVillain && c.IsTarget, 1,
-				DamageType.Sonic, storedResults: targetResults);
-			if(UseUnityCoroutines)
-			{
-				yield return this.GameController.StartCoroutine(coroutine);
-			}
-			else
-			{
-				this.GameController.ExhaustCoroutine(coroutine);
-			}
+    public class SonicBoomCardController : CardController
+    {
+        public SonicBoomCardController(Card card, TurnTakerController turnTakerController)
+            : base(card, turnTakerController)
+        {
+        }
 
-			//If {AuraOfSilence} is in play, heroes dealt damage this way cannot play cards until the start of the villain turn."
-			bool isInPlay = this.GameController.IsCardInPlayAndNotUnderCard("AuraOfSilence");
+        public override IEnumerator Play()
+        {
+            List<DealDamageAction> targetResults = new List<DealDamageAction>();
 
-			if(isInPlay || base.IsGameAdvanced)
-			{
-				foreach(DealDamageAction t in targetResults)
-				{
-					if(t != null && t.Target != null && t.Target.IsHeroCharacterCard && t.DidDealDamage)
-					{
-						CannotPlayCardsStatusEffect cannotPlayCards = new CannotPlayCardsStatusEffect();
-						cannotPlayCards.TurnTakerCriteria.IsSpecificTurnTaker = t.Target.NativeDeck.OwnerTurnTaker;
-						cannotPlayCards.UntilStartOfNextTurn(base.TurnTaker);
+            // {TheElementalist} deals each non-villain target 1 sonic damage.
+            IEnumerator coroutine = this.DealDamage(
+                this.CharacterCard,
+                (Card c) => !c.IsVillain && c.IsTarget,
+                1,
+                DamageType.Sonic,
+                storedResults: targetResults);
+            if (this.UseUnityCoroutines)
+            {
+                yield return this.GameController.StartCoroutine(coroutine);
+            }
+            else
+            {
+                this.GameController.ExhaustCoroutine(coroutine);
+            }
 
-						coroutine = base.AddStatusEffect(cannotPlayCards);
-            			if (base.UseUnityCoroutines)
-            			{
-                			yield return base.GameController.StartCoroutine(coroutine);
-            			}
-            			else
-            			{
-                			base.GameController.ExhaustCoroutine(coroutine);
-            			}
-					}
-				}
-			}
-		}
-	}
+            // If {AuraOfSilence} is in play, heroes dealt damage this way cannot play cards until the start of the villain turn.
+            bool isInPlay = this.GameController.IsCardInPlayAndNotUnderCard("AuraOfSilence");
+
+            if (isInPlay || this.IsGameAdvanced)
+            {
+                foreach (DealDamageAction t in targetResults)
+                {
+                    if (t != null && t.Target != null && t.Target.IsHeroCharacterCard && t.DidDealDamage)
+                    {
+                        CannotPlayCardsStatusEffect cannotPlayCards = new CannotPlayCardsStatusEffect();
+                        cannotPlayCards.TurnTakerCriteria.IsSpecificTurnTaker = t.Target.NativeDeck.OwnerTurnTaker;
+                        cannotPlayCards.UntilStartOfNextTurn(this.TurnTaker);
+
+                        coroutine = this.AddStatusEffect(cannotPlayCards);
+                        if (this.UseUnityCoroutines)
+                        {
+                            yield return this.GameController.StartCoroutine(coroutine);
+                        }
+                        else
+                        {
+                            this.GameController.ExhaustCoroutine(coroutine);
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
