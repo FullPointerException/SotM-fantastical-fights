@@ -1,6 +1,7 @@
 namespace Fpe.TheElementalist
 {
     using System.Collections;
+    using System.Linq;
     using Handelabra.Sentinels.Engine.Controller;
     using Handelabra.Sentinels.Engine.Model;
 
@@ -26,7 +27,9 @@ namespace Fpe.TheElementalist
 
             // If {HolyAspect} is in play, all villain targets regain {H} HP.
             bool isInPlay = this.GameController.IsCardInPlayAndNotUnderCard("HolyAspect");
-            if (isInPlay || this.IsGameAdvanced)
+            bool advancedAndAnyGlyph = this.IsGameAdvanced && this.CharacterCard.IsFlipped && this.FindCardsWhere((Card c) => c.DoKeywordsContain("glyph")).Any();
+
+            if (isInPlay || advancedAndAnyGlyph)
             {
                 coroutine = this.GameController.GainHP(this.DecisionMaker, (Card c) => c.IsVillain && c.IsTarget, this.Game.H);
                 if (this.UseUnityCoroutines)

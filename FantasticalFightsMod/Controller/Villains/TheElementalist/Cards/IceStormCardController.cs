@@ -2,6 +2,7 @@ namespace Fpe.TheElementalist
 {
     using System.Collections;
     using System.Collections.Generic;
+    using System.Linq;
     using Handelabra.Sentinels.Engine.Controller;
     using Handelabra.Sentinels.Engine.Model;
 
@@ -29,8 +30,9 @@ namespace Fpe.TheElementalist
 
             // If {FrostShield} is in play, characters dealt damage this way cannot use powers until the start of the villain turn.
             bool isInPlay = this.GameController.IsCardInPlayAndNotUnderCard("FrostShield");
+            bool advancedAndAnyGlyph = this.IsGameAdvanced && this.CharacterCard.IsFlipped && this.FindCardsWhere((Card c) => c.DoKeywordsContain("glyph")).Any();
 
-            if (isInPlay || this.IsGameAdvanced)
+            if (isInPlay || advancedAndAnyGlyph)
             {
                 foreach (DealDamageAction t in targetResults)
                 {

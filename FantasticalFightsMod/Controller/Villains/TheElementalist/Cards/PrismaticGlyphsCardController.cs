@@ -24,7 +24,7 @@ namespace Fpe.TheElementalist
 
         private IEnumerator ImmuneIfAnyGlyphsInPlayResponse(DealDamageAction dda)
         {
-            bool anyGlyphs = this.FindCardsWhere((Card c) => c.DoKeywordsContain("glyph")).Any();
+            bool anyGlyphs = this.FindCardsWhere((Card c) => c.DoKeywordsContain("glyph") && c.IsInPlayAndHasGameText).Any();
             if (anyGlyphs)
             {
                 return this.ImmuneToDamageResponse(dda);

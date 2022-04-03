@@ -48,7 +48,7 @@
 				"Whenever a glyph is played, play the top card of the villain deck.",
 				"At the end of the villain turn, play the top card of the villain deck."
 			],
-			"flippedAdvnced": "When {TheElementalist} plays a spell that checks if a specific glyph is in play, treat it as though that glyph is in play.",
+			"flippedAdvanced": "When {TheElementalist} plays a spell that checks if a specific glyph is in play, treat it as though that glyph is in play if any glyphs are in play.",
 			"flippedIcons": [
 				"PlayCardNow"
 			],

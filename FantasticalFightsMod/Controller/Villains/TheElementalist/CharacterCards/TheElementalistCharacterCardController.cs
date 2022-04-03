@@ -50,6 +50,8 @@
                     (TurnTaker tt) => tt == this.TurnTaker,
                     new Func<PhaseChangeAction, IEnumerator>(this.BackEndOfTurnResponse),
                     TriggerType.PlayCard));
+
+                this.AddDefeatedIfDestroyedTriggers();
             }
 
             if (this.IsGameChallenge)
@@ -67,6 +69,7 @@
         {
             if (this.Card.IsFlipped)
             {
+                base.DestroyAttempted(destroyCard);
                 yield break;
             }
 
