@@ -306,6 +306,23 @@
 			]
 		},
 		{
+			"identifier": "ForceBurst",
+			"count": 1,
+			"title": "Force Burst",
+			"keywords": [
+				"one-shot",
+				"spell"
+			],
+			"icons": [
+				"DealDamageEnergy",
+				"CannotDrawCards"
+			],
+			"body": [
+				"{TheElementalist} deals each non-villain target {H} energy damage.",
+				"If {EnergyArmor} is in play, heroes dealt damage this way cannot draw cards until the start of the villain turn."
+			]
+		},
+		{
 			"identifier": "SlashingGale",
 			"count": 1,
 			"title": "Slashing Gale",
@@ -396,7 +413,7 @@
 		},
 		{
 			"identifier": "PrismaticBlast",
-			"count": 2,
+			"count": 1,
 			"title": "Prismatic Blast",
 			"keywords": [
 				"one-shot",

@@ -18,7 +18,7 @@ namespace Fpe.TheElementalist
             var damageRoutine = this.DealDamage(
                                     this.CharacterCard,
                                     c => c.IsHeroCharacterCard && !c.IsIncapacitatedOrOutOfGame,
-                                    target => target.TurnTaker.PlayArea.Cards.Where(c => c.IsInPlay && this.IsEquipment(c)).Count(),
+                                    target => target.TurnTaker.PlayArea.Cards.Where(c => c.IsInPlay && this.IsEquipment(c)).Count() + 1,
                                     DamageType.Projectile);
             if (this.UseUnityCoroutines)
             {
