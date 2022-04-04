@@ -306,6 +306,23 @@
 			]
 		},
 		{
+			"identifier": "SlashingGale",
+			"count": 1,
+			"title": "Slashing Gale",
+			"keywords": [
+				"one-shot",
+				"spell"
+			],
+			"icons": [
+				"DealDamageProjectile",
+				"Manipulate"
+			],
+			"body": [
+				"{TheElementalist} deals each hero X+1 projectile damage, where X is the number of equipment cards they have in play.",
+				"If {Windwall} is in play, shuffle each hero's trash into their deck."
+			]
+		},
+		{
 			"identifier": "MindCrush",
 			"count": 1,
 			"title": "Mind Crush",
@@ -392,22 +409,6 @@
 			"body": [
 				"Each glyph in play deals 1 damage of its type to all non-villain targets.",
 				"If there are no glyph cards in play, play the top card of the villain deck."
-			]
-		},
-		{
-			"identifier": "TimeStop",
-			"count": 1,
-			"title": "Time Stop",
-			"keywords": [
-				"one-shot",
-				"spell"
-			],
-			"icons": [
-				"PlayCardNow",
-				"PlayCardNow"
-			],
-			"body": [
-				"Play the top 2 cards of the villain deck."
 			]
 		},
 		{
