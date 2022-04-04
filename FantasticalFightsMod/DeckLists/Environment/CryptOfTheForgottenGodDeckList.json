@@ -1,0 +1,149 @@
+{
+	"name": "Crypt Of The Forgotten God",
+	"kind": "Environment",
+	"expansionIdentifier": "FantasticalFights",
+	"backgroundColor": "000000",
+	"difficulty": 2,
+	"cards": [
+		{
+			"identifier": "SoulOfTheForgottenGod",
+			"count": 1,
+			"title": "Soul of the Forgotten God",
+			"keywords": [
+				"Relic"
+			],
+			"icons": [
+				"LoseTheGame"
+			],
+			"body": [
+				"If {SoulOfTheForgottenGod}, {HeadOfTheForgottenGod}, {ChestOfTheForgottenGod}, {ArmsOfTheForgottenGod}, and {LegsOfTheForgottenGod} are ever all in play, the Forgotten God rises. Earth is destroyed. The Heroes lose."
+			],
+			"hitpoints": 20
+		},
+		{
+			"identifier": "HeadOfTheForgottenGod",
+			"count": 1,
+			"title": "Head of the Forgotten God",
+			"keywords": [
+				"Relic"
+			],
+			"icons": [
+				"LoseTheGame"
+			],
+			"hitpoints": 5
+		},
+		{
+			"identifier": "ChestOfTheForgottenGod",
+			"count": 1,
+			"title": "Chest of the Forgotten God",
+			"keywords": [
+				"Relic"
+			],
+			"icons": [
+				"LoseTheGame"
+			],
+			"hitpoints": 5
+		},
+		{
+			"identifier": "ArmsOfTheForgottenGod",
+			"count": 1,
+			"title": "Arms of the Forgotten God",
+			"keywords": [
+				"Relic"
+			],
+			"icons": [
+				"LoseTheGame"
+			],
+			"hitpoints": 5
+		},
+		{
+			"identifier": "LegsOfTheForgottenGod",
+			"count": 1,
+			"title": "Legs of the Forgotten God",
+			"keywords": [
+				"Relic"
+			],
+			"icons": [
+				"LoseTheGame"
+			],
+			"hitpoints": 5
+		},
+		{
+			"identifier": "SealingMists",
+			"count": 3,
+			"title": "SealingMists",
+			"icons": [
+				"DealDamageRadiant"
+			],
+			"body": [
+				"At the start of the environment turn, you may destroy this card.",
+				"At the end of the environment turn, {SealingMists} deals each target 1 radiant damage."
+			]
+		},
+		{
+			"identifier": "EnchantedShackles",
+			"count": 2,
+			"title": "Enchanted Shackles",
+			"icons": [
+				"PlayCardNow"
+			],
+			"body": [
+				"{EnchantedShackles} is immune to radiant damage."
+				"When {EnchantedShackles} is destroyed, play the top card of the environment deck."
+			],
+			"hitpoints": 3
+		},
+		{
+			"identifier": "CultistOfTheForgottenOne",
+			"count": 3,
+			"title": "Cultist Of The Forgotten One",
+			"keywords": [
+				"cultist"
+			],
+			"icons": [
+				"PlayCardNow",
+				"StartOfTurnAction"
+			],
+			"body": [
+				"At the start of the environment turn, return a random Relic card from the environment trash to play."
+			],
+			"hitpoints": 3
+		},
+		{
+			"identifier": "AabriaTheForgottenPriestess",
+			"count": 1,
+			"title": "Aabria, The Forgotten Priestess",
+			"keywords": [
+				"cultist"
+			],
+			"icons": [
+				"GainHP",
+				"DealDamageInfernal",
+				"StartAndEndOfTurnAction"
+			],
+			"body": [
+				"At the start of the environment turn, each Cultist gains 1 HP.",
+				"At the end of the environment turn, {AabriaTheForgottenPriestess} deals the X non-environment targets with the lowest HP {H-2} infernal damage, where X is the number of cultists in play."
+			],
+			"hitpoints": 5
+		},
+		{
+			"identifier": "ZoryxTheChosen",
+			"count": 1,
+			"title": "Zoryx, The Chosen",
+			"keywords": [
+				"cultist",
+			],
+			"icons": [
+				"ReduceDamageTaken",
+				"GainHP",
+				"EndOfTurnAction"
+			],
+			"body": [
+				"Reduce damage dealt to Relic targets by 1.",
+				"At the end of the environment turn, all relic targets gain {H} HP."
+			],
+			"hitpoints": 15
+		}
+	]
+}
