@@ -1,7 +1,14 @@
 * SotM-fantastical-fights
-
 ** Fantastical Fights Mod
-
 Fantastical Fights is a fan expansion for [[https://store.steampowered.com/app/337150/Sentinels_of_the_Multiverse/][Sentinels of the Multiverse Digital]]. This expansion brings several fantasy themed heroes and monsters into the game.
-
+** Contents
+*** Heroes
+	There are currently plans for 10 more heroes
+*** Villains
+	There are currently 2 new villains
+	- The Elementalist
+	- Hydra
+	There are plans for at least 5 more
+*** Environments
+	There are currently plans for 6 more environments
 
