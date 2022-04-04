@@ -45,29 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\Villains\TheElementalist\Cards\AcidCloudCardController.cs" />
-    <Compile Include="Controller\Villains\TheElementalist\Cards\AntitoxinCardController.cs" />
-    <Compile Include="Controller\Villains\TheElementalist\Cards\AuraOfSilenceCardController.cs" />
-    <Compile Include="Controller\Villains\TheElementalist\Cards\ChannelDarknessCardController.cs" />
-    <Compile Include="Controller\Villains\TheElementalist\Cards\ChannelLightCardController.cs" />
-    <Compile Include="Controller\Villains\TheElementalist\Cards\EnergyArmorCardController.cs" />
-    <Compile Include="Controller\Villains\TheElementalist\Cards\EnergyArmorCardController.cs" />
-    <Compile Include="Controller\Villains\TheElementalist\Cards\FlameBarrierCardController.cs" />
-    <Compile Include="Controller\Villains\TheElementalist\Cards\FrostShieldCardController.cs" />
-    <Compile Include="Controller\Villains\TheElementalist\Cards\GroundingCardController.cs" />
-    <Compile Include="Controller\Villains\TheElementalist\Cards\HolyAspectCardController.cs" />
-    <Compile Include="Controller\Villains\TheElementalist\Cards\IceStormCardController.cs" />
-    <Compile Include="Controller\Villains\TheElementalist\Cards\LightningBoltCardController.cs" />
-    <Compile Include="Controller\Villains\TheElementalist\Cards\MeteorRainCardController.cs" />
-    <Compile Include="Controller\Villains\TheElementalist\Cards\MindBlankCardController.cs" />
-    <Compile Include="Controller\Villains\TheElementalist\Cards\MindCrushCardController.cs" />
-    <Compile Include="Controller\Villains\TheElementalist\Cards\PrismaticBlastCardController.cs" />
-    <Compile Include="Controller\Villains\TheElementalist\Cards\PrismaticGlyphsCardController.cs" />
-    <Compile Include="Controller\Villains\TheElementalist\Cards\ScribeGlyphCardController.cs" />
-    <Compile Include="Controller\Villains\TheElementalist\Cards\SonicBoomCardController.cs" />
-    <Compile Include="Controller\Villains\TheElementalist\Cards\TimeStopCardController.cs" />
-    <Compile Include="Controller\Villains\TheElementalist\Cards\UnholyAspectCardController.cs" />
-    <Compile Include="Controller\Villains\TheElementalist\Cards\WindwallCardController.cs" />
+    <Compile Include="Controller\Villains\**\Cards\*.cs" />
     <Compile Include="Controller\Villains\**\CharacterCards\*.cs" />
     <Compile Include="Controller\Villains\**\Utilities\*.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
