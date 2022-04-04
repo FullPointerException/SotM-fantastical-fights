@@ -1,0 +1,285 @@
+{
+	"name": "Hydra",
+	"kind": "Villain",
+	"expansionIdentifier": "FantasticalFights",
+	"initialCardIdentifiers": [
+		"RulesCard"
+		"Hydra",
+	],
+	"cards": [
+		{
+			"identifier": "RulesCard",
+			"count": 1,
+			"isReal": false,
+			"character": true,
+			"title": "Multiheaded Beast",
+			"body": "A Beast Appears",
+			"backgroundColor": "FFFFFF",
+			"foilBackgroundColor": "FFFFFF",
+			"setup": [
+				"At the start of the game, {Hydra} enters play \"Regenerating Beast\" side up.",
+				"Search the villain deck for all Head cards and place them beneath this card face down. Shuffle the villain deck."
+				"Put the top 2 cards under this card into play."
+			],
+			"gameplay": [
+				"At the start of the villain turn, this card flips."
+			],
+			"flippedBody": "Regeneration",
+			"flippedGameplay": [
+				"As long as any heads are in play, {Hydra} cannot be destroyed",
+				"At the end of the villain turn, put all Head cards from the villain trash into play. Then play that many cards from under this card."
+			],
+			"difficulty": 2
+		},
+		{
+			"identifier": "HydraCharacter",
+			"count": 1,
+			"title": "Hydra",
+			"keywords": "villain",
+			"body": "Regenerating Beast",
+			"backgroundColor": "FFFFFF",
+			"foidBackgroundColor": "FFFFFF",
+			"character": true,
+			"hitpoints": 75,
+			"nemesisIdentifiers": [
+				"FpeFantasy.Druid"
+			],
+			"gameplay": [
+				"At the end of the villain turn, if there are more than 2*{H} Heads in play, {Hydra} flips."
+			],
+			"flippedBody": "Rampaging Beast",
+			"flippedGameplay": [
+				"As long as any heads are in play, {Hydra} cannot be destroyed"
+			]
+		},
+		{
+			"identifier": "HydraHead",
+			"count": 25,
+			"title": "Head",
+			"keywords": [
+				"head"
+			],
+			"icons": [
+				"DamageMelee"
+			],
+			"body": [
+				"At the start of the villain turn, {Head} deals the hero target with the highest HP 1 melee damage."
+			],
+			"hitpoints": 3
+		},
+		{
+			"identifier": "SlumberingForm",
+			"count": 1,
+			"title": "Slumbering Form",
+			"keywords": [
+				"ongoing",
+				"form",
+			],
+			"icons": [
+				"CannotDealDamage",
+				"GainHP"
+			],
+			"body": [
+				"When {SlumberingForm} enters play, destroy all other form cards.",
+				"Heads cannot deal damage",
+				"At the end of the villain turn, all heads gain 1 HP and {Hydra} regains 1 HP for each head in play."
+			]
+		},
+		{
+			"identifier": "GuardingForm",
+			"count": 1,
+			"title": "Guarding Form",
+			"keywords": [
+				"ongoing",
+				"form",
+			],
+			"icons": [
+				"RedirectDamage"
+			],
+			"body": [
+				"When {SlumberingForm} enters play, destroy all other form cards.",
+				"When {Hydra} would be dealt damage, redirect that damage to the head with the lowest HP."
+			]
+		},
+		{
+			"identifier": "BlockingForm",
+			"count": 1,
+			"title": "Blocking Form",
+			"keywords": [
+				"ongoing",
+				"form"
+			],
+			"icons": [
+				"ReduceDamageTaken"
+			],
+			"body": [
+				"When {BlockingForm} enters play, destroy all other form cards.",
+				"Decrease the damage dealt to heads by 1.",
+				"Decrease the damage dealt to {Hydra} by the number of heads in play."
+			]
+		},
+		{
+			"identifier": "EnragedForm",
+			"count": 1,
+			"title": "Enraged Form",
+			"keywords": [
+				"ongoing",
+				"form"
+			],
+			"icons": [
+				"IncreaseDamageDealtMelee"
+			],
+			"body": [
+				"When {EnragedForm} enters play, destroy all other form cards.",
+				"Increase melee damage dealt by {Hydra} by the number of heads in play."
+			]
+		},
+		{
+			"identifier": "Rampage",
+			"count": 3,
+			"title": "Rampage",
+			"keywords": [
+				"one-shot"
+			],
+			"icons": [
+				"DealDamageMelee"
+			],
+			"body": [
+				"{Hydra} deals {H} melee damage to all other targets."
+			]
+		},
+		{
+			"identifier": "MultiBite",
+			"count": 3,
+			"title": "Multi-bite",
+			"keywords": [
+				"one-shot"
+			],
+			"icons": [
+				"DealDamageMelee"
+			],
+			"body": [
+				"Each head in play deals the hero target with the highest HP 1 melee damage."
+			]
+		},
+		{
+			"identifier": "SurpriseBite",
+			"count": 3,
+			"title": "Surprise Bite",
+			"keywords": [
+				"one-shot"
+			],
+			"icons": [
+				"DealDamageMelee"
+			],
+			"body": [
+				"Put the top card under {RulesCard} into play.",
+				"That head deals the hero target with the lowest HP 1 melee damage."
+			]
+		},
+		{
+			"identifier": "EntanglingNecks",
+			"count": 2,
+			"title": "Entangling Necks",
+			"keywords": [
+				"ongoing"
+			],
+			"icons": [
+				"DealDamageMelee",
+				"DestroySelf"
+			],
+			"body": [
+				"When {EntanglingNecks} enters play, place it next to a hero.",
+				"At the start of that hero's turn, {Hydra} deals them {H}-2 melee damage.",
+				"When that hero destroys a head, destroy this card"
+			]
+		},
+		{
+			"identifier": "FocusedCrush",
+			"count": 2,
+			"title": "Focused Crush",
+			"keywords": [
+				"one-shot"
+			],
+			"icons": [
+				"DealDamageMelee"
+			],
+			"body": [
+				"The head with the highest HP deals the hero target with the highest HP X melee damage, where X is the number of heads in play + 1"
+			]
+		},
+		{
+			"identifier": "SelfSnackrifice",
+			"count": 2,
+			"title": "Self Snackrifice",
+			"keywords": [
+				"one-shot"
+			],
+			"icons": [
+				"DestroySelf",
+				"GainHP"
+			],
+			"body": [
+				"Destroy all heads in play.",
+				"{Hydra} gains 3 HP for each head in the villain trash."
+			]
+		},
+		{
+			"identifier": "SuddenSprouting",
+			"count": 1,
+			"title": "Sudden Sprouting",
+			"keywords": [
+				"one-shot"
+			],
+			"icons": [
+				"PlayCardNow"
+			],
+			"body": [
+				"Play the top {H} cards under {RulesCard}."
+			]
+		},
+		{
+			"identifier": "AcidBlood",
+			"count": 1,
+			"title": "Acid Blood",
+			"keywords": [
+				"ongoing"
+			],
+			"icons": [
+				"DealDamageToxic"
+			],
+			"body": [
+				"Whenever a hero destroys a head, {Hydra} deal that hero {H-2} toxic damage."
+			]
+		},
+		{
+			"identifier": "JawCrush",
+			"count": 1,
+			"title": "Jaw Crush",
+			"keywords": [
+				"one-shot"
+			],
+			"icons": [
+				"DestroyEquipment"
+			],
+			"body": [
+				"Each hero destorys 1 equipment card.",
+				"{Hydra} deals any hero who does not {H} melee damage"
+			]
+		},
+		{
+			"identifier": "ThunderingRoar",
+			"count": 1,
+			"title": "Thundering Roar",
+			"keywords" : [
+				"one-shot"
+			],
+			"icons": [
+				"DealDamageSonic"
+			],
+			"body": [
+				"{Hydra} deals each non-villain target {H} sonic damage."
+			]
+		}
+	]
+}
