@@ -6,9 +6,9 @@ namespace Fpe.TheElementalist
     using Handelabra.Sentinels.Engine.Controller;
     using Handelabra.Sentinels.Engine.Model;
 
-    public class SonicBoomCardController : CardController
+    public class ForceBurstCardController : CardController
     {
-        public SonicBoomCardController(Card card, TurnTakerController turnTakerController)
+        public ForceBurstCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
         }

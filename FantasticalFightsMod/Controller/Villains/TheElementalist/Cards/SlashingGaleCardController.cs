@@ -5,9 +5,9 @@ namespace Fpe.TheElementalist
     using Handelabra.Sentinels.Engine.Controller;
     using Handelabra.Sentinels.Engine.Model;
 
-    public class SonicBoomCardController : CardController
+    public class SlashingGaleCardController : CardController
     {
-        public SonicBoomCardController(Card card, TurnTakerController turnTakerController)
+        public SlashingGaleCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
         {
         }
@@ -35,7 +35,6 @@ namespace Fpe.TheElementalist
 
             if (isInPlay || advancedAndAnyGlyph)
             {
-                var heroTurnTakers = ;
                 foreach (var hero in this.GameController.FindHeroTurnTakerControllers().Where(h => !h.IsIncapacitatedOrOutOfGame))
                 {
                     var shuffleRoutine = this.ShuffleTrashIntoDeck(hero, false, false, this.GetCardSource());
