@@ -6,7 +6,7 @@ namespace Fpe.TheElementalist
     using Handelabra.Sentinels.Engine.Controller;
     using Handelabra.Sentinels.Engine.Model;
 
-    public class LightningBoltCardController : CardController
+    public class LightningBoltCardController : ElementalistSpellController
     {
         public LightningBoltCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
@@ -36,10 +36,7 @@ namespace Fpe.TheElementalist
             }
 
             // If {Grounding} is in play, characters dealt damage this way cannot deal damage until the start of the villain turn.
-            bool isInPlay = this.GameController.IsCardInPlayAndNotUnderCard("Grounding");
-            bool advancedAndAnyGlyph = this.IsGameAdvanced && this.CharacterCard.IsFlipped && this.FindCardsWhere((Card c) => c.DoKeywordsContain("glyph")).Any();
-
-            if (isInPlay || advancedAndAnyGlyph)
+            if (this.ShouldActivateGlyphEffect("Grounding"))
             {
                 foreach (DealDamageAction t in targetResults)
                 {

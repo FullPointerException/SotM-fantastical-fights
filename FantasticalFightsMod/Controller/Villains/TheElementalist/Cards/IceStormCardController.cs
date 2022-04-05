@@ -6,7 +6,7 @@ namespace Fpe.TheElementalist
     using Handelabra.Sentinels.Engine.Controller;
     using Handelabra.Sentinels.Engine.Model;
 
-    public class IceStormCardController : CardController
+    public class IceStormCardController : ElementalistSpellController
     {
         public IceStormCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
@@ -32,7 +32,7 @@ namespace Fpe.TheElementalist
             bool isInPlay = this.GameController.IsCardInPlayAndNotUnderCard("FrostShield");
             bool advancedAndAnyGlyph = this.IsGameAdvanced && this.CharacterCard.IsFlipped && this.FindCardsWhere((Card c) => c.DoKeywordsContain("glyph")).Any();
 
-            if (isInPlay || advancedAndAnyGlyph)
+            if (this.ShouldActivateGlyphEffect("FrostShield"))
             {
                 foreach (DealDamageAction t in targetResults)
                 {

@@ -14,9 +14,7 @@ namespace Fpe.TheElementalist
 
         public override IEnumerator Play()
         {
-            // TODO verify this only effects face up in play not under other stuff
-            var glyphs = this.FindCardsWhere(c => c.DoKeywordsContain("glyph"));
-
+            var glyphs = this.FindCardsWhere(c => c.DoKeywordsContain("glyph") && c.IsInPlayAndHasGameText);
             if (glyphs.Any())
             {
                 // Each glyph in play deals 1 damage of its type to all non-villain targets.
@@ -39,8 +37,7 @@ namespace Fpe.TheElementalist
             }
 
             // Recount glyphs in case they all got destroyed during the damage dealing
-            // TODO verify this only effects face up in play not under other stuff
-            glyphs = this.FindCardsWhere(c => c.DoKeywordsContain("glyph"));
+            glyphs = this.FindCardsWhere(c => c.DoKeywordsContain("glyph") && c.IsInPlayAndHasGameText);
 
             // If there are no glyph cards in play, play the top card of the villain deck.
             if (!glyphs.Any())

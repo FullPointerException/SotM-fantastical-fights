@@ -5,7 +5,7 @@ namespace Fpe.TheElementalist
     using Handelabra.Sentinels.Engine.Controller;
     using Handelabra.Sentinels.Engine.Model;
 
-    public class ForceBurstCardController : CardController
+    public class ForceBurstCardController : ElementalistSpellController
     {
         public ForceBurstCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
@@ -26,10 +26,7 @@ namespace Fpe.TheElementalist
             }
 
             // If {EnergyArmor} is in play, play the top card of the villain deck
-            bool isInPlay = this.GameController.IsCardInPlayAndNotUnderCard("EnergyArmor");
-            bool advancedAndAnyGlyph = this.IsGameAdvanced && this.CharacterCard.IsFlipped && this.FindCardsWhere((Card c) => c.DoKeywordsContain("glyph")).Any();
-
-            if (isInPlay || advancedAndAnyGlyph)
+            if (this.ShouldActivateGlyphEffect("EnergyArmor"))
             {
                 var playCoroutine = this.GameController.PlayTopCard(this.DecisionMaker, this.TurnTakerController, cardSource: this.GetCardSource());
                 if (this.UseUnityCoroutines)

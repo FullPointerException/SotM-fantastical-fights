@@ -5,7 +5,7 @@ namespace Fpe.TheElementalist
     using Handelabra.Sentinels.Engine.Controller;
     using Handelabra.Sentinels.Engine.Model;
 
-    public class ChannelLightCardController : CardController
+    public class ChannelLightCardController : ElementalistSpellController
     {
         public ChannelLightCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
@@ -26,10 +26,7 @@ namespace Fpe.TheElementalist
             }
 
             // If {HolyAspect} is in play, all villain targets regain {H} HP.
-            bool isInPlay = this.GameController.IsCardInPlayAndNotUnderCard("HolyAspect");
-            bool advancedAndAnyGlyph = this.IsGameAdvanced && this.CharacterCard.IsFlipped && this.FindCardsWhere((Card c) => c.DoKeywordsContain("glyph")).Any();
-
-            if (isInPlay || advancedAndAnyGlyph)
+            if (this.ShouldActivateGlyphEffect("HolyAspect"))
             {
                 coroutine = this.GameController.GainHP(this.DecisionMaker, (Card c) => c.IsVillain && c.IsTarget, this.Game.H);
                 if (this.UseUnityCoroutines)

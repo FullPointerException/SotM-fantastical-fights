@@ -6,7 +6,7 @@ namespace Fpe.TheElementalist
     using Handelabra.Sentinels.Engine.Controller;
     using Handelabra.Sentinels.Engine.Model;
 
-    public class SonicBoomCardController : CardController
+    public class SonicBoomCardController : ElementalistSpellController
     {
         public SonicBoomCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
@@ -34,10 +34,7 @@ namespace Fpe.TheElementalist
             }
 
             // If {AuraOfSilence} is in play, heroes dealt damage this way cannot play cards until the start of the villain turn.
-            bool isInPlay = this.GameController.IsCardInPlayAndNotUnderCard("AuraOfSilence");
-            bool advancedAndAnyGlyph = this.IsGameAdvanced && this.CharacterCard.IsFlipped && this.FindCardsWhere((Card c) => c.DoKeywordsContain("glyph")).Any();
-
-            if (isInPlay || advancedAndAnyGlyph)
+            if (this.ShouldActivateGlyphEffect("AuraOfSilence"))
             {
                 foreach (DealDamageAction t in targetResults)
                 {

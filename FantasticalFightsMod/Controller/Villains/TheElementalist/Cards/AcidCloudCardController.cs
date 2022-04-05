@@ -5,7 +5,7 @@ namespace Fpe.TheElementalist
     using Handelabra.Sentinels.Engine.Controller;
     using Handelabra.Sentinels.Engine.Model;
 
-    public class AcidCloudCardController : CardController
+    public class AcidCloudCardController : ElementalistSpellController
     {
         public AcidCloudCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
@@ -26,9 +26,7 @@ namespace Fpe.TheElementalist
             }
 
             // If {Antitoxin} is in play, destroy all hero equipment cards.
-            bool isInPlay = this.GameController.IsCardInPlayAndNotUnderCard("Antitoxin");
-            bool advancedAndAnyGlyph = this.IsGameAdvanced && this.CharacterCard.IsFlipped && this.FindCardsWhere((Card c) => c.DoKeywordsContain("glyph")).Any();
-            if (isInPlay || advancedAndAnyGlyph)
+            if (this.ShouldActivateGlyphEffect("Antitoxin"))
             {
                 coroutine = this.GameController.DestroyCards(this.DecisionMaker, new LinqCardCriteria((Card c) => c.IsInPlayAndHasGameText && this.IsEquipment(c)));
                 if (this.UseUnityCoroutines)

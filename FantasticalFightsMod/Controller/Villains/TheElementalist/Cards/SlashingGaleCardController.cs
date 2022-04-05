@@ -5,7 +5,7 @@ namespace Fpe.TheElementalist
     using Handelabra.Sentinels.Engine.Controller;
     using Handelabra.Sentinels.Engine.Model;
 
-    public class SlashingGaleCardController : CardController
+    public class SlashingGaleCardController : ElementalistSpellController
     {
         public SlashingGaleCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
@@ -30,10 +30,7 @@ namespace Fpe.TheElementalist
             }
 
             // If {Windwall} is in play, shuffle each hero's trash into their deck.
-            bool isInPlay = this.GameController.IsCardInPlayAndNotUnderCard("Windwall");
-            bool advancedAndAnyGlyph = this.IsGameAdvanced && this.CharacterCard.IsFlipped && this.FindCardsWhere((Card c) => c.DoKeywordsContain("glyph")).Any();
-
-            if (isInPlay || advancedAndAnyGlyph)
+            if (this.ShouldActivateGlyphEffect("Windwall"))
             {
                 foreach (var hero in this.GameController.FindHeroTurnTakerControllers().Where(h => !h.IsIncapacitatedOrOutOfGame))
                 {

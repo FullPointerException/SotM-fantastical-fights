@@ -6,7 +6,7 @@ namespace Fpe.TheElementalist
     using Handelabra.Sentinels.Engine.Controller;
     using Handelabra.Sentinels.Engine.Model;
 
-    public class ChannelDarknessCardController : CardController
+    public class ChannelDarknessCardController : ElementalistSpellController
     {
         public ChannelDarknessCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
@@ -29,10 +29,7 @@ namespace Fpe.TheElementalist
             }
 
             // If {UnholyAspect} is in play, all hero characters damaged this way discard all but 1 card.
-            bool isInPlay = this.GameController.IsCardInPlayAndNotUnderCard("UnholyAspect");
-            bool advancedAndAnyGlyph = this.IsGameAdvanced && this.CharacterCard.IsFlipped && this.FindCardsWhere((Card c) => c.DoKeywordsContain("glyph")).Any();
-
-            if (isInPlay || advancedAndAnyGlyph)
+            if (this.ShouldActivateGlyphEffect("UnholyAspect"))
             {
                 foreach (DealDamageAction t in targetResults)
                 {

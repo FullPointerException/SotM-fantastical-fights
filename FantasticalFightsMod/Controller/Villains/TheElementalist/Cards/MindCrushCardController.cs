@@ -5,7 +5,7 @@ namespace Fpe.TheElementalist
     using Handelabra.Sentinels.Engine.Controller;
     using Handelabra.Sentinels.Engine.Model;
 
-    public class MindCrushCardController : CardController
+    public class MindCrushCardController : ElementalistSpellController
     {
         public MindCrushCardController(Card card, TurnTakerController turnTakerController)
             : base(card, turnTakerController)
@@ -26,10 +26,7 @@ namespace Fpe.TheElementalist
             }
 
             // If {MindBlank} is in play, destroy all hero ongoing cards.
-            bool isInPlay = this.GameController.IsCardInPlayAndNotUnderCard("MindBlank");
-            bool advancedAndAnyGlyph = this.IsGameAdvanced && this.CharacterCard.IsFlipped && this.FindCardsWhere((Card c) => c.DoKeywordsContain("glyph")).Any();
-
-            if (isInPlay || advancedAndAnyGlyph)
+            if (this.ShouldActivateGlyphEffect("MindBlank"))
             {
                 coroutine = this.GameController.DestroyCards(this.DecisionMaker, new LinqCardCriteria((Card c) => c.IsInPlayAndHasGameText && c.IsOngoing));
                 if (this.UseUnityCoroutines)
