@@ -14,14 +14,5 @@ namespace Fpe.TheElementalist
         {
             return Handelabra.Sentinels.Engine.Model.DamageType.Toxic;
         }
-
-        public override void AddTriggers()
-        {
-            // {Antitoxin} is immune to toxic damage.
-            this.AddImmuneToDamageTrigger((DealDamageAction action) => action.DamageType == Handelabra.Sentinels.Engine.Model.DamageType.Toxic && action.Target == this.Card);
-
-            // {TheElementalist} is immune to toxic damage.
-            this.AddImmuneToDamageTrigger((DealDamageAction action) => action.DamageType == Handelabra.Sentinels.Engine.Model.DamageType.Toxic && action.Target == this.CharacterCard);
-        }
     }
 }

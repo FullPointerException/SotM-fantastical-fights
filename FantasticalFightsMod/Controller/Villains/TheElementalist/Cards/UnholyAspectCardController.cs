@@ -14,14 +14,5 @@ namespace Fpe.TheElementalist
         {
             return Handelabra.Sentinels.Engine.Model.DamageType.Infernal;
         }
-
-        public override void AddTriggers()
-        {
-            // {UnholyAspect} is immune to infernal damage.
-            this.AddImmuneToDamageTrigger((DealDamageAction action) => action.DamageType == Handelabra.Sentinels.Engine.Model.DamageType.Infernal && action.Target == this.Card);
-
-            // {TheElementalist} is immune to infernal damage.
-            this.AddImmuneToDamageTrigger((DealDamageAction action) => action.DamageType == Handelabra.Sentinels.Engine.Model.DamageType.Infernal && action.Target == this.CharacterCard);
-        }
     }
 }

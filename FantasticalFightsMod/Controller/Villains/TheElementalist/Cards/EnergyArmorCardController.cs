@@ -14,14 +14,5 @@ namespace Fpe.TheElementalist
         {
             return Handelabra.Sentinels.Engine.Model.DamageType.Energy;
         }
-
-        public override void AddTriggers()
-        {
-            // {EnergyArmor} is immune to energy damage.
-            this.AddImmuneToDamageTrigger((DealDamageAction action) => action.DamageType == Handelabra.Sentinels.Engine.Model.DamageType.Energy && action.Target == this.Card);
-
-            // {TheElementalist} is immune to energy damage.
-            this.AddImmuneToDamageTrigger((DealDamageAction action) => action.DamageType == Handelabra.Sentinels.Engine.Model.DamageType.Energy && action.Target == this.CharacterCard);
-        }
     }
 }

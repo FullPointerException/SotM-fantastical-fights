@@ -14,14 +14,5 @@ namespace Fpe.TheElementalist
         {
             return Handelabra.Sentinels.Engine.Model.DamageType.Lightning;
         }
-
-        public override void AddTriggers()
-        {
-            // {Grounding} is immune to lightning damage.
-            this.AddImmuneToDamageTrigger((DealDamageAction action) => action.DamageType == Handelabra.Sentinels.Engine.Model.DamageType.Lightning && action.Target == this.Card);
-
-            // {TheElementalist} is immune to lightning damage.
-            this.AddImmuneToDamageTrigger((DealDamageAction action) => action.DamageType == Handelabra.Sentinels.Engine.Model.DamageType.Lightning && action.Target == this.CharacterCard);
-        }
     }
 }

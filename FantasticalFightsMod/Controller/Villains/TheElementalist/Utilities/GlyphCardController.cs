@@ -12,5 +12,14 @@ namespace Fpe.TheElementalist
         }
 
         public abstract DamageType DamageType();
+
+        public override void AddTriggers()
+        {
+            // This glyph is immmune to damage of its damage type
+            this.AddImmuneToDamageTrigger((DealDamageAction action) => action.DamageType == this.DamageType() && action.Target == this.Card);
+
+            // {TheElementalist} is immune to damage of this glyph's damage type
+            this.AddImmuneToDamageTrigger((DealDamageAction action) => action.DamageType == this.DamageType() && action.Target == this.CharacterCard);
+        }
     }
 }

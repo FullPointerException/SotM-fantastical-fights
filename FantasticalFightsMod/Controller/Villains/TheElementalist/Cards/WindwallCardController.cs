@@ -14,14 +14,5 @@ namespace Fpe.TheElementalist
         {
             return Handelabra.Sentinels.Engine.Model.DamageType.Projectile;
         }
-
-        public override void AddTriggers()
-        {
-            // {Windwall} is immune to projectile damage.
-            this.AddImmuneToDamageTrigger((DealDamageAction action) => action.DamageType == Handelabra.Sentinels.Engine.Model.DamageType.Projectile && action.Target == this.Card);
-
-            // {TheElementalist} is immune to projectile damage.
-            this.AddImmuneToDamageTrigger((DealDamageAction action) => action.DamageType == Handelabra.Sentinels.Engine.Model.DamageType.Projectile && action.Target == this.CharacterCard);
-        }
     }
 }

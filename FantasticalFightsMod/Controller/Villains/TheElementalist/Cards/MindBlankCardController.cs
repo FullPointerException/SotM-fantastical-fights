@@ -14,14 +14,5 @@ namespace Fpe.TheElementalist
         {
             return Handelabra.Sentinels.Engine.Model.DamageType.Psychic;
         }
-
-        public override void AddTriggers()
-        {
-            // {MindBlank} is immune to psychic damage.
-            this.AddImmuneToDamageTrigger((DealDamageAction action) => action.DamageType == Handelabra.Sentinels.Engine.Model.DamageType.Psychic && action.Target == this.Card);
-
-            // {TheElementalist} is immune to psychic damage.
-            this.AddImmuneToDamageTrigger((DealDamageAction action) => action.DamageType == Handelabra.Sentinels.Engine.Model.DamageType.Psychic && action.Target == this.CharacterCard);
-        }
     }
 }
