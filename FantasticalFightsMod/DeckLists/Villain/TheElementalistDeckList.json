@@ -319,7 +319,7 @@
 			],
 			"body": [
 				"{TheElementalist} deals each non-villain target {H} energy damage.",
-				"If {EnergyArmor} is in play, heroes dealt damage this way cannot draw cards until the start of the villain turn."
+				"If {EnergyArmor} is in play, play the top card of the villain deck."
 			]
 		},
 		{

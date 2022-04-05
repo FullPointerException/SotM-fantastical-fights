@@ -18,7 +18,7 @@ namespace Fpe.TheElementalist
             var damageRoutine = this.DealDamage(
                                     this.CharacterCard,
                                     c => c.IsHeroCharacterCard && !c.IsIncapacitatedOrOutOfGame,
-                                    target => target.TurnTaker.PlayArea.Cards.Where(c => c.IsInPlay && this.IsEquipment(c)).Count() + 1,
+                                    target => target.Owner.PlayArea.Cards.Where(c => c.IsInPlay && this.IsEquipment(c)).Count() + 1,
                                     DamageType.Projectile);
             if (this.UseUnityCoroutines)
             {
@@ -37,7 +37,7 @@ namespace Fpe.TheElementalist
             {
                 foreach (var hero in this.GameController.FindHeroTurnTakerControllers().Where(h => !h.IsIncapacitatedOrOutOfGame))
                 {
-                    var shuffleRoutine = this.ShuffleTrashIntoDeck(hero, false, false, this.GetCardSource());
+                    var shuffleRoutine = this.GameController.ShuffleTrashIntoDeck(hero, false, null, this.GetCardSource());
                     if (this.UseUnityCoroutines)
                     {
                         yield return this.GameController.StartCoroutine(damageRoutine);
