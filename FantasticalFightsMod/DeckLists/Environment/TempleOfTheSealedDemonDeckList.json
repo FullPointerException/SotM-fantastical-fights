@@ -1,0 +1,178 @@
+{
+    "name": "Temple of the Sealed Demon",
+    "kind": "Environment",
+    "expansionIdentifier": "FantasticalFights",
+    "backgroundColor": "000000",
+    "difficulty": 2,
+    "cards": [
+	{
+	    "identifier": "AshuojSealedEvil",
+	    "count": 1,
+	    "title": "Ashuoj, the Sealed Evil",
+	    "keywords": [
+		"demon"
+	    ],
+	    "icons": [
+		"ConnotWin",
+		"DealDamageInfernal"
+	    ],
+	    "body": [
+		"{AshuojSealedEvil} enters play wtih 5HP",
+		"{AshuojSealedEvil} is indestructible as long as they have at least 1 HP",
+		"While there are 3 or more environment relics in play, {AshuojSealedEvil} is immune to damage from villains.",
+		"At the start of the environment turn, {AshuojSealedEvil} deals the Hero target with the highest HP {H} infernal damage.",
+		"At the end of the environemt turn, if there are 3 or more environment relics in play, restore {AshuojSealedEvil} to full HP."
+	    ],
+	    "hitpoints": 100
+	},
+	{
+	    "identifier": "SwordOfAshuoj",
+	    "count": 1,
+	    "title": "Sword of Ashuoj",
+	    "keywords": [
+		"relic"
+	    ],
+	    "icons": [
+		"Relic",
+		"DealDamageInfernal"
+	    ],
+	    "body": [
+		"At the end of the environment turn, if {AshuojSealedEvil} is in play, they deal the non-demon, non-relic target with the highest HP {H}-2 Fire damage and {H}-2 Infernal damage."
+	    ],
+	    "hitpoints": 10
+	},
+	{
+	    "identifier": "ShieldOfAshuoj",
+	    "count": 1,
+	    "title": "Shield of Ashuoj",
+	    "keywords": [
+		"relic"
+	    ],
+	    "icons": [
+		"Relic",
+		"ReduceDamage"
+	    ],
+	    "body": [
+		"Reduce damage dealt to {AshuojSealedEvil} and Relics by 1."
+	    ],
+	    "hitpoints": 10
+	},
+	{
+	    "identifier": "HelmOfAshuoj",
+	    "count": 1,
+	    "title": "Helm of Ashuoj",
+	    "keywords": [
+		"relic"
+	    ],
+	    "icons": [
+		"Relic",
+		"DealDamageLightning"
+	    ],
+	    "body": [
+		"At the end of the environment turn, if {AshuojSealedEvil} is in play, they deal all non-demon, non-relic targets 1 Lightning damage."
+	    ],
+	    "hitpoints": 10
+	},
+	{
+	    "identifier": "ArmorOfAshuoj",
+	    "count": 1,
+	    "title": "Armor of Ashuoj",
+	    "keywords": [
+		"relic"
+	    ],
+	    "icons": [
+		"Relic",
+		"ReduceDamage"
+	    ],
+	    "body": [
+		"Reduce damage dealt to {AshuojSealedEvil} by 2."
+	    ],
+	    "hitpoints": 10
+	},
+	{
+	    "identifier": "Brimstone",
+	    "count": 2,
+	    "title": "Brimstone",
+	    "icons": [
+		"DealDamageInfernal",
+		"DestroyEquipment",
+		"DestroyThis"
+	    ],
+	    "body": [
+		"At the start of the environment turn, a hero may destory 1 Equipment. If they do, destroy {Brimstone}.",
+		"At the end of the environment turn, {Brimstone} deals the target with the 2nd highest HP {H-2} Infernal damage."
+	    ]
+	},
+	{
+	    "identifier": "Hellfire",
+	    "count": 2,
+	    "title": "Hellfire",
+	    "icons": [
+		"DealDamageFire",
+		"DestroyThis"
+	    ],
+	    "body": [
+		"At the start of the environment turn, a hero may have {Hellfire} deal them 3 Fire damage. If they do, destroy {Hellfire}.",
+		"At the end of the environment turn, {Hellfire} deals all targets 1 Fire damage."
+	    ]
+	},
+	{
+	    "identifier": "InfernalSummons",
+	    "count": 2,
+	    "title": "Infernal Summons",
+	    "icons": [
+		"PlayCardNow",
+		"DestroyThis"
+	    ],
+	    "body": [
+		"At the start of the environment turn, if there are any demons or relics in play, destory {InfernalSummons}",
+		"At the end of the environment turn, reveal the top card of the environment deck. If it is a relic or demon, play it."
+	    ]
+	},
+	{
+	    "identifier": "ScavengerImp",
+	    "count": 1,
+	    "title": "Scavenger Imp",
+	    "keywords": [
+		"demon"
+	    ],
+	    "icons": [
+		"PlayFromTrash"
+	    ],
+	    "body": [
+		"At the start of the environment turn, if the top card of the environment trash is a relic, put it into play."
+	    ],
+	    "hitpoints": 3
+	},
+	{
+	    "identifier": "InfuserImp",
+	    "count": 1,
+	    "title": "Infuser Imp",
+	    "keywords": [
+		"demon"
+	    ],
+	    "icons": [
+		"GainHP",
+		"DealDamage"
+	    ],
+	    "body": [
+		"At the start of the environment turn, all relics and demons regain 1 HP.",
+		"At the end of the environment turn, {InfuserImp} deals all non-demon, non-relic targets 1 Infernal damage",
+	    ],
+	    "hitpoints": 3
+	},
+	{
+	    "identifier": "DemonHunter",
+	    "count": 1,
+	    "title": "Demon Hunter",
+	    "icons": [
+		"DealRadiantDamage"
+	    ],
+	    "body": [
+		"At the start of the environment turn, each demon deals {DemonHunter} 1 Infernal damage.",
+		"At the end of the environment turn, {DemonHunter} deals the demon target with the highest HP 5 radiant damage"
+	    ],
+	    "hitpoints": 7
+	}
+    ]
+}
